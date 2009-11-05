@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091104193537) do
+ActiveRecord::Schema.define(:version => 20091105171449) do
 
   create_table "frontline_actions_triggers", :id => false, :force => true do |t|
     t.integer "action_id"
@@ -162,20 +162,15 @@ ActiveRecord::Schema.define(:version => 20091104193537) do
     t.string  "prop_value", :limit => 512
   end
 
-  create_table "keyvalues", :force => true do |t|
-    t.string   "key"
-    t.string   "value"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "messages", :force => true do |t|
-    t.string   "author"
-    t.string   "text"
-    t.string   "source"
-    t.string   "location_string"
+    t.string   "name"
+    t.string   "number"
+    t.text     "text"
+    t.string   "message_type"
+    t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "query",        :default => ""
   end
 
 end

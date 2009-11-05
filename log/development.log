@@ -188,3 +188,976 @@ Migrating to CreateMessages (20091104193537)
   [4;36;1mSQL (3.7ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
   [4;35;1mSQL (3.7ms)[0m   [0mdescribe `messages`[0m
   [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW KEYS FROM `messages`[0m
+  [4;36;1mSQL (27.4ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (534.5ms)[0m   [0;1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (298.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateSms (20091104191813)
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (187.1ms)[0m   [0mCREATE TABLE `frontline_actions_triggers` (`action_id` int(11), `message_id` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (108.1ms)[0m   [0mCREATE TABLE `frontline_contacts` (`cid` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(128) NOT NULL, `mobile_msisdn` varchar(40) NOT NULL, `other_msisdn` varchar(40), `email` varchar(256), `notes` varchar(1024), `active` int(11), `forms_port` int(11), `forms_wakeup` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (201.5ms)[0m   [0;1mCREATE UNIQUE INDEX `mobile_msisdn` ON `frontline_contacts` (`mobile_msisdn`)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (118.9ms)[0m   [0;1mCREATE TABLE `frontline_email_accounts` (`cid` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `account_name` varchar(255) NOT NULL, `account_server` varchar(255), `account_server_port` int(11), `account_password` varchar(40), `account_useSSL` int(11)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (103.7ms)[0m   [0mCREATE UNIQUE INDEX `account_name` ON `frontline_email_accounts` (`account_name`)[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (105.6ms)[0m   [0mCREATE TABLE `frontline_emails` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `status` int(11), `sender` int(11), `recipients` varchar(256), `subject` varchar(128), `content` varchar(256), `date` datetime NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (98.8ms)[0m   [0mCREATE TABLE `frontline_form_field_properties` (`fid` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `field_id` int(11), `name` varchar(256), `value` varchar(256)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (98.7ms)[0m   [0mCREATE TABLE `frontline_form_field_results` (`fid` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `field_id` int(11), `value` varchar(32672), `response_id` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (98.4ms)[0m   [0mCREATE TABLE `frontline_form_fields` (`fid` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `form_id` int(11), `form_position` int(11), `type` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (121.3ms)[0m   [0mCREATE TABLE `frontline_form_responses` (`rid` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `form_id` int(11), `submitter` varchar(256)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (100.3ms)[0m   [0mCREATE TABLE `frontline_forms` (`fid` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(256) NOT NULL, `mobil_id` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (88.1ms)[0m   [0mCREATE TABLE `frontline_forms_permission` (`permission_id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `form_id` int(11), `client_msisdn` varchar(32) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (99.3ms)[0m   [0mCREATE TABLE `frontline_groups` (`gid` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `parent` int(11), `name` varchar(128)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (109.2ms)[0m   [0mCREATE TABLE `frontline_groups_members` (`group_id` int(11), `contact_id` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (98.8ms)[0m   [0mCREATE TABLE `frontline_keywordActions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `type` int(11), `keyword_id` int(11), `command_string` varchar(480), `command_integer` int(11), `hits` int(11), `start_date` datetime NOT NULL, `end_date` datetime NOT NULL, `email_recipient` varchar(480), `email_subject` varchar(480), `external_cmd_type` int(11), `external_cmd` varchar(480), `external_cmd_response_type` int(11), `external_cmd_response_action_type` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (142.9ms)[0m   [0mCREATE TABLE `frontline_keyword_lists_members` (`keyword_id` int(11), `list_type` int(11), `reference_type` int(11), `reference_id` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (98.2ms)[0m   [0mCREATE TABLE `frontline_keywords` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `parent_id` int(11), `keyword` varchar(40), `description` varchar(256)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (98.4ms)[0m   [0mCREATE TABLE `frontline_messages` (`tid` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `type` int(11), `status` int(11), `omsisdnA` varchar(40), `dmsisdnA` varchar(40), `dest_port` int(11), `content` varchar(1024), `dateTimeP` datetime NOT NULL, `smscReference` int(11), `dispatch_dateTime` datetime NOT NULL, `form_message` int(11), `form_id` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (108.5ms)[0m   [0mCREATE TABLE `frontline_phones_details` (`phone_serial` varchar(128) NOT NULL, `use_sending` int(11), `use_receiving` int(11), `delete_msgs_from_phone` int(11), `use_delivery_reports` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (99.3ms)[0m   [0mCREATE TABLE `frontline_schedule_tasks` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `type` int(11), `text` varchar(256), `sendTo` int(11), `startDate` datetime NOT NULL, `endDate` datetime NOT NULL, `frequency` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (108.4ms)[0m   [0mCREATE TABLE `frontline_smsinternet` (`isid` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `serv_class` varchar(512), `serv_serial` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (98.3ms)[0m   [0mCREATE TABLE `frontline_smsinternet_props` (`isid` int(11), `prop_key` varchar(512), `prop_value` varchar(512)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (38.3ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091104191813')[0m
+Migrating to CreateMessages (20091104193537)
+  [4;35;1mSQL (156.4ms)[0m   [0mCREATE TABLE `messages` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `author` varchar(255), `text` varchar(255), `source` varchar(255), `location_string` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (107.7ms)[0m   [0;1mCREATE TABLE `keyvalues` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `key` varchar(255), `value` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091104193537')[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (84.7ms)[0m   [0mSHOW FIELDS FROM `frontline_actions_triggers`[0m
+  [4;36;1mSQL (11.9ms)[0m   [0;1mdescribe `frontline_actions_triggers`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW KEYS FROM `frontline_actions_triggers`[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW FIELDS FROM `frontline_contacts`[0m
+  [4;35;1mSQL (2.7ms)[0m   [0mdescribe `frontline_contacts`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `frontline_contacts`[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSHOW FIELDS FROM `frontline_email_accounts`[0m
+  [4;36;1mSQL (2.7ms)[0m   [0;1mdescribe `frontline_email_accounts`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW KEYS FROM `frontline_email_accounts`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSHOW FIELDS FROM `frontline_emails`[0m
+  [4;35;1mSQL (2.2ms)[0m   [0mdescribe `frontline_emails`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `frontline_emails`[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mSHOW FIELDS FROM `frontline_form_field_properties`[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mdescribe `frontline_form_field_properties`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW KEYS FROM `frontline_form_field_properties`[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mSHOW FIELDS FROM `frontline_form_field_results`[0m
+  [4;35;1mSQL (2.5ms)[0m   [0mdescribe `frontline_form_field_results`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `frontline_form_field_results`[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mSHOW FIELDS FROM `frontline_form_fields`[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mdescribe `frontline_form_fields`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `frontline_form_fields`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSHOW FIELDS FROM `frontline_form_responses`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mdescribe `frontline_form_responses`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW KEYS FROM `frontline_form_responses`[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mSHOW FIELDS FROM `frontline_forms`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mdescribe `frontline_forms`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW KEYS FROM `frontline_forms`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW FIELDS FROM `frontline_forms_permission`[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mdescribe `frontline_forms_permission`[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mSHOW KEYS FROM `frontline_forms_permission`[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mSHOW FIELDS FROM `frontline_groups`[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mdescribe `frontline_groups`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `frontline_groups`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW FIELDS FROM `frontline_groups_members`[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mdescribe `frontline_groups_members`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW KEYS FROM `frontline_groups_members`[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSHOW FIELDS FROM `frontline_keywordActions`[0m
+  [4;36;1mSQL (2.5ms)[0m   [0;1mdescribe `frontline_keywordActions`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW KEYS FROM `frontline_keywordActions`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSHOW FIELDS FROM `frontline_keyword_lists_members`[0m
+  [4;35;1mSQL (2.5ms)[0m   [0mdescribe `frontline_keyword_lists_members`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `frontline_keyword_lists_members`[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mSHOW FIELDS FROM `frontline_keywords`[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mdescribe `frontline_keywords`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW KEYS FROM `frontline_keywords`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSHOW FIELDS FROM `frontline_messages`[0m
+  [4;35;1mSQL (2.4ms)[0m   [0mdescribe `frontline_messages`[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSHOW KEYS FROM `frontline_messages`[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mSHOW FIELDS FROM `frontline_phones_details`[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mdescribe `frontline_phones_details`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW KEYS FROM `frontline_phones_details`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSHOW FIELDS FROM `frontline_schedule_tasks`[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mdescribe `frontline_schedule_tasks`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW KEYS FROM `frontline_schedule_tasks`[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mSHOW FIELDS FROM `frontline_smsinternet`[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mdescribe `frontline_smsinternet`[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `frontline_smsinternet`[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mSHOW FIELDS FROM `frontline_smsinternet_props`[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mdescribe `frontline_smsinternet_props`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `frontline_smsinternet_props`[0m
+  [4;35;1mSQL (2.6ms)[0m   [0mSHOW FIELDS FROM `keyvalues`[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1mdescribe `keyvalues`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `keyvalues`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mdescribe `messages`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW KEYS FROM `messages`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (42.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateMessages (20091104193537)
+  [4;35;1mSQL (97.2ms)[0m   [0mDROP TABLE `messages`[0m
+  [4;36;1mSQL (56.5ms)[0m   [0;1mDROP TABLE `keyvalues`[0m
+  [4;35;1mSQL (210.4ms)[0m   [0mDELETE FROM schema_migrations WHERE version = '20091104193537'[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (19.2ms)[0m   [0mSHOW FIELDS FROM `frontline_actions_triggers`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mdescribe `frontline_actions_triggers`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW KEYS FROM `frontline_actions_triggers`[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mSHOW FIELDS FROM `frontline_contacts`[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mdescribe `frontline_contacts`[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mSHOW KEYS FROM `frontline_contacts`[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mSHOW FIELDS FROM `frontline_email_accounts`[0m
+  [4;36;1mSQL (88.6ms)[0m   [0;1mdescribe `frontline_email_accounts`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSHOW KEYS FROM `frontline_email_accounts`[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSHOW FIELDS FROM `frontline_emails`[0m
+  [4;35;1mSQL (3.1ms)[0m   [0mdescribe `frontline_emails`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `frontline_emails`[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSHOW FIELDS FROM `frontline_form_field_properties`[0m
+  [4;36;1mSQL (2.5ms)[0m   [0;1mdescribe `frontline_form_field_properties`[0m
+  [4;35;1mSQL (2.7ms)[0m   [0mSHOW KEYS FROM `frontline_form_field_properties`[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mSHOW FIELDS FROM `frontline_form_field_results`[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mdescribe `frontline_form_field_results`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSHOW KEYS FROM `frontline_form_field_results`[0m
+  [4;35;1mSQL (22.1ms)[0m   [0mSHOW FIELDS FROM `frontline_form_fields`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mdescribe `frontline_form_fields`[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSHOW KEYS FROM `frontline_form_fields`[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSHOW FIELDS FROM `frontline_form_responses`[0m
+  [4;35;1mSQL (2.8ms)[0m   [0mdescribe `frontline_form_responses`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSHOW KEYS FROM `frontline_form_responses`[0m
+  [4;35;1mSQL (2.4ms)[0m   [0mSHOW FIELDS FROM `frontline_forms`[0m
+  [4;36;1mSQL (2.7ms)[0m   [0;1mdescribe `frontline_forms`[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mSHOW KEYS FROM `frontline_forms`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW FIELDS FROM `frontline_forms_permission`[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mdescribe `frontline_forms_permission`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW KEYS FROM `frontline_forms_permission`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW FIELDS FROM `frontline_groups`[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1mdescribe `frontline_groups`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW KEYS FROM `frontline_groups`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW FIELDS FROM `frontline_groups_members`[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mdescribe `frontline_groups_members`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW KEYS FROM `frontline_groups_members`[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mSHOW FIELDS FROM `frontline_keywordActions`[0m
+  [4;36;1mSQL (2.8ms)[0m   [0;1mdescribe `frontline_keywordActions`[0m
+  [4;35;1mSQL (13.9ms)[0m   [0mSHOW KEYS FROM `frontline_keywordActions`[0m
+  [4;36;1mSQL (14.4ms)[0m   [0;1mSHOW FIELDS FROM `frontline_keyword_lists_members`[0m
+  [4;35;1mSQL (2.7ms)[0m   [0mdescribe `frontline_keyword_lists_members`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `frontline_keyword_lists_members`[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mSHOW FIELDS FROM `frontline_keywords`[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1mdescribe `frontline_keywords`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW KEYS FROM `frontline_keywords`[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mSHOW FIELDS FROM `frontline_messages`[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mdescribe `frontline_messages`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW KEYS FROM `frontline_messages`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSHOW FIELDS FROM `frontline_phones_details`[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mdescribe `frontline_phones_details`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW KEYS FROM `frontline_phones_details`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSHOW FIELDS FROM `frontline_schedule_tasks`[0m
+  [4;35;1mSQL (2.3ms)[0m   [0mdescribe `frontline_schedule_tasks`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW KEYS FROM `frontline_schedule_tasks`[0m
+  [4;35;1mSQL (2.6ms)[0m   [0mSHOW FIELDS FROM `frontline_smsinternet`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mdescribe `frontline_smsinternet`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW KEYS FROM `frontline_smsinternet`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW FIELDS FROM `frontline_smsinternet_props`[0m
+  [4;35;1mSQL (49.3ms)[0m   [0mdescribe `frontline_smsinternet_props`[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSHOW KEYS FROM `frontline_smsinternet_props`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateSms (20091104191813)
+Migrating to CreateMessages (20091104193537)
+  [4;35;1mSQL (179.4ms)[0m   [0mCREATE TABLE `messages` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `number` varchar(255), `text` text, `type` varchar(255), `status` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091104193537')[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (75.3ms)[0m   [0;1mSHOW FIELDS FROM `frontline_actions_triggers`[0m
+  [4;35;1mSQL (18.5ms)[0m   [0mdescribe `frontline_actions_triggers`[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW KEYS FROM `frontline_actions_triggers`[0m
+  [4;35;1mSQL (2.5ms)[0m   [0mSHOW FIELDS FROM `frontline_contacts`[0m
+  [4;36;1mSQL (2.9ms)[0m   [0;1mdescribe `frontline_contacts`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW KEYS FROM `frontline_contacts`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW FIELDS FROM `frontline_email_accounts`[0m
+  [4;35;1mSQL (2.4ms)[0m   [0mdescribe `frontline_email_accounts`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `frontline_email_accounts`[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mSHOW FIELDS FROM `frontline_emails`[0m
+  [4;36;1mSQL (3.4ms)[0m   [0;1mdescribe `frontline_emails`[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mSHOW KEYS FROM `frontline_emails`[0m
+  [4;36;1mSQL (18.9ms)[0m   [0;1mSHOW FIELDS FROM `frontline_form_field_properties`[0m
+  [4;35;1mSQL (4.3ms)[0m   [0mdescribe `frontline_form_field_properties`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `frontline_form_field_properties`[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mSHOW FIELDS FROM `frontline_form_field_results`[0m
+  [4;36;1mSQL (45.8ms)[0m   [0;1mdescribe `frontline_form_field_results`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW KEYS FROM `frontline_form_field_results`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW FIELDS FROM `frontline_form_fields`[0m
+  [4;35;1mSQL (2.4ms)[0m   [0mdescribe `frontline_form_fields`[0m
+  [4;36;1mSQL (3.5ms)[0m   [0;1mSHOW KEYS FROM `frontline_form_fields`[0m
+  [4;35;1mSQL (2.3ms)[0m   [0mSHOW FIELDS FROM `frontline_form_responses`[0m
+  [4;36;1mSQL (2.5ms)[0m   [0;1mdescribe `frontline_form_responses`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW KEYS FROM `frontline_form_responses`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW FIELDS FROM `frontline_forms`[0m
+  [4;35;1mSQL (2.3ms)[0m   [0mdescribe `frontline_forms`[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW KEYS FROM `frontline_forms`[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mSHOW FIELDS FROM `frontline_forms_permission`[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mdescribe `frontline_forms_permission`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `frontline_forms_permission`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSHOW FIELDS FROM `frontline_groups`[0m
+  [4;35;1mSQL (2.6ms)[0m   [0mdescribe `frontline_groups`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW KEYS FROM `frontline_groups`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW FIELDS FROM `frontline_groups_members`[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mdescribe `frontline_groups_members`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSHOW KEYS FROM `frontline_groups_members`[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW FIELDS FROM `frontline_keywordActions`[0m
+  [4;35;1mSQL (3.7ms)[0m   [0mdescribe `frontline_keywordActions`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `frontline_keywordActions`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSHOW FIELDS FROM `frontline_keyword_lists_members`[0m
+  [4;36;1mSQL (2.7ms)[0m   [0;1mdescribe `frontline_keyword_lists_members`[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mSHOW KEYS FROM `frontline_keyword_lists_members`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSHOW FIELDS FROM `frontline_keywords`[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mdescribe `frontline_keywords`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW KEYS FROM `frontline_keywords`[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mSHOW FIELDS FROM `frontline_messages`[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mdescribe `frontline_messages`[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mSHOW KEYS FROM `frontline_messages`[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mSHOW FIELDS FROM `frontline_phones_details`[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mdescribe `frontline_phones_details`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `frontline_phones_details`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSHOW FIELDS FROM `frontline_schedule_tasks`[0m
+  [4;36;1mSQL (3.1ms)[0m   [0;1mdescribe `frontline_schedule_tasks`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW KEYS FROM `frontline_schedule_tasks`[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSHOW FIELDS FROM `frontline_smsinternet`[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mdescribe `frontline_smsinternet`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW KEYS FROM `frontline_smsinternet`[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSHOW FIELDS FROM `frontline_smsinternet_props`[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1mdescribe `frontline_smsinternet_props`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW KEYS FROM `frontline_smsinternet_props`[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+  [4;35;1mSQL (2.7ms)[0m   [0mdescribe `messages`[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW KEYS FROM `messages`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-05 11:06:42) [GET]
+
+ActionController::RoutingError (No route matches "/operator/fetch" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OperatorController#fetch (for 127.0.0.1 at 2009-11-05 11:07:05) [GET]
+  [4;35;1mSms Load (0.0ms)[0m   [0mMysql::Error: Table 'wikicell.sms' doesn't exist: SELECT * FROM `sms` WHERE (`sms`.`type` = 1 AND `sms`.`status` = 1) [0m
+
+ActiveRecord::StatementInvalid (Mysql::Error: Table 'wikicell.sms' doesn't exist: SELECT * FROM `sms` WHERE (`sms`.`type` = 1 AND `sms`.`status` = 1) ):
+  app/controllers/operator_controller.rb:5:in `fetch'
+
+Rendered rescues/_trace (48.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OperatorController#fetch (for 127.0.0.1 at 2009-11-05 11:07:55) [GET]
+  [4;35;1mSms Load (0.5ms)[0m   [0mSELECT * FROM `frontline_messages` WHERE (`frontline_messages`.`type` = 1 AND `frontline_messages`.`status` = 1) [0m
+
+ActionView::MissingTemplate (Missing template operator/fetch.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OperatorController#fetch (for 127.0.0.1 at 2009-11-05 11:08:38) [GET]
+  [4;35;1mSms Load (0.5ms)[0m   [0mSELECT * FROM `frontline_messages` WHERE (`frontline_messages`.`type` = 1 AND `frontline_messages`.`status` = 1) [0m
+Completed in 6ms (View: 1, DB: 1) | 200 OK [http://localhost/operator/fetch]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OperatorController#fetch (for 127.0.0.1 at 2009-11-05 11:09:54) [GET]
+  [4;35;1mSms Load (0.7ms)[0m   [0mSELECT * FROM `frontline_messages` WHERE (`frontline_messages`.`type` = 1 AND `frontline_messages`.`status` = 1) [0m
+  [4;36;1mMessage Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+
+ArgumentError (wrong number of arguments (2 for 0)):
+  app/models/sms.rb:46:in `save_as_message'
+  app/controllers/operator_controller.rb:7:in `fetch'
+  app/controllers/operator_controller.rb:6:in `each'
+  app/controllers/operator_controller.rb:6:in `fetch'
+
+Rendered rescues/_trace (43.0ms)
+Rendered rescues/_request_and_response (1.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OperatorController#fetch (for 127.0.0.1 at 2009-11-05 12:06:30) [GET]
+  [4;36;1mSms Load (0.7ms)[0m   [0;1mSELECT * FROM `frontline_messages` WHERE (`frontline_messages`.`type` = 1 AND `frontline_messages`.`status` = 1) [0m
+  [4;35;1mSms Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `frontline_messages`[0m
+
+NoMethodError (undefined method `save_as_message' for #<Sms:0x24120d8>):
+  app/controllers/operator_controller.rb:7:in `fetch'
+  app/controllers/operator_controller.rb:6:in `each'
+  app/controllers/operator_controller.rb:6:in `fetch'
+
+Rendered rescues/_trace (122.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OperatorController#fetch (for 127.0.0.1 at 2009-11-05 12:06:42) [GET]
+  [4;35;1mSms Load (0.8ms)[0m   [0mSELECT * FROM `frontline_messages` WHERE (`frontline_messages`.`type` = 1 AND `frontline_messages`.`status` = 1) [0m
+  [4;36;1mSQL (20.5ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mMessage Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+
+NoMethodError (undefined method `save_as_message' for #<Class:0x2638b50>):
+  app/controllers/operator_controller.rb:7:in `fetch'
+  app/controllers/operator_controller.rb:6:in `each'
+  app/controllers/operator_controller.rb:6:in `fetch'
+
+Rendered rescues/_trace (41.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OperatorController#fetch (for 127.0.0.1 at 2009-11-05 12:06:49) [GET]
+  [4;35;1mSms Load (0.7ms)[0m   [0mSELECT * FROM `frontline_messages` WHERE (`frontline_messages`.`type` = 1 AND `frontline_messages`.`status` = 1) [0m
+  [4;36;1mMessage Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+
+ArgumentError (wrong number of arguments (2 for 0)):
+  app/models/message.rb:11:in `new_from_sms'
+  app/controllers/operator_controller.rb:7:in `fetch'
+  app/controllers/operator_controller.rb:6:in `each'
+  app/controllers/operator_controller.rb:6:in `fetch'
+
+Rendered rescues/_trace (43.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OperatorController#fetch (for 127.0.0.1 at 2009-11-05 12:07:25) [GET]
+  [4;36;1mSms Load (0.7ms)[0m   [0;1mSELECT * FROM `frontline_messages` WHERE (`frontline_messages`.`type` = 1 AND `frontline_messages`.`status` = 1) [0m
+  [4;35;1mMessage Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+
+ArgumentError (wrong number of arguments (2 for 0)):
+  app/models/message.rb:12:in `new_from_sms'
+  app/controllers/operator_controller.rb:7:in `fetch'
+  app/controllers/operator_controller.rb:6:in `each'
+  app/controllers/operator_controller.rb:6:in `fetch'
+
+Rendered rescues/_trace (43.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OperatorController#fetch (for 127.0.0.1 at 2009-11-05 12:07:26) [GET]
+  [4;35;1mSms Load (0.7ms)[0m   [0mSELECT * FROM `frontline_messages` WHERE (`frontline_messages`.`type` = 1 AND `frontline_messages`.`status` = 1) [0m
+  [4;36;1mMessage Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+
+ArgumentError (wrong number of arguments (2 for 0)):
+  app/models/message.rb:12:in `new_from_sms'
+  app/controllers/operator_controller.rb:7:in `fetch'
+  app/controllers/operator_controller.rb:6:in `each'
+  app/controllers/operator_controller.rb:6:in `fetch'
+
+Rendered rescues/_trace (43.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OperatorController#fetch (for 127.0.0.1 at 2009-11-05 12:07:32) [GET]
+  [4;35;1mSms Load (0.7ms)[0m   [0mSELECT * FROM `frontline_messages` WHERE (`frontline_messages`.`type` = 1 AND `frontline_messages`.`status` = 1) [0m
+  [4;36;1mMessage Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+
+ArgumentError (wrong number of arguments (2 for 0)):
+  app/models/message.rb:12:in `new_from_sms'
+  app/controllers/operator_controller.rb:7:in `fetch'
+  app/controllers/operator_controller.rb:6:in `each'
+  app/controllers/operator_controller.rb:6:in `fetch'
+
+Rendered rescues/_trace (43.5ms)
+Rendered rescues/_request_and_response (1.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateMessages (20091104193537)
+  [4;35;1mSQL (1.8ms)[0m   [0mDROP TABLE `messages`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20091104193537'[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSHOW FIELDS FROM `frontline_actions_triggers`[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mdescribe `frontline_actions_triggers`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `frontline_actions_triggers`[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mSHOW FIELDS FROM `frontline_contacts`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mdescribe `frontline_contacts`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `frontline_contacts`[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSHOW FIELDS FROM `frontline_email_accounts`[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mdescribe `frontline_email_accounts`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW KEYS FROM `frontline_email_accounts`[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mSHOW FIELDS FROM `frontline_emails`[0m
+  [4;36;1mSQL (3.2ms)[0m   [0;1mdescribe `frontline_emails`[0m
+  [4;35;1mSQL (2.8ms)[0m   [0mSHOW KEYS FROM `frontline_emails`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW FIELDS FROM `frontline_form_field_properties`[0m
+  [4;35;1mSQL (2.5ms)[0m   [0mdescribe `frontline_form_field_properties`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW KEYS FROM `frontline_form_field_properties`[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mSHOW FIELDS FROM `frontline_form_field_results`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mdescribe `frontline_form_field_results`[0m
+  [4;35;1mSQL (2.2ms)[0m   [0mSHOW KEYS FROM `frontline_form_field_results`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSHOW FIELDS FROM `frontline_form_fields`[0m
+  [4;35;1mSQL (2.2ms)[0m   [0mdescribe `frontline_form_fields`[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW KEYS FROM `frontline_form_fields`[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mSHOW FIELDS FROM `frontline_form_responses`[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mdescribe `frontline_form_responses`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `frontline_form_responses`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW FIELDS FROM `frontline_forms`[0m
+  [4;35;1mSQL (2.2ms)[0m   [0mdescribe `frontline_forms`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW KEYS FROM `frontline_forms`[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSHOW FIELDS FROM `frontline_forms_permission`[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mdescribe `frontline_forms_permission`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `frontline_forms_permission`[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSHOW FIELDS FROM `frontline_groups`[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mdescribe `frontline_groups`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW KEYS FROM `frontline_groups`[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSHOW FIELDS FROM `frontline_groups_members`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mdescribe `frontline_groups_members`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `frontline_groups_members`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSHOW FIELDS FROM `frontline_keywordActions`[0m
+  [4;35;1mSQL (2.4ms)[0m   [0mdescribe `frontline_keywordActions`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `frontline_keywordActions`[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mSHOW FIELDS FROM `frontline_keyword_lists_members`[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mdescribe `frontline_keyword_lists_members`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `frontline_keyword_lists_members`[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSHOW FIELDS FROM `frontline_keywords`[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mdescribe `frontline_keywords`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW KEYS FROM `frontline_keywords`[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mSHOW FIELDS FROM `frontline_messages`[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1mdescribe `frontline_messages`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW KEYS FROM `frontline_messages`[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mSHOW FIELDS FROM `frontline_phones_details`[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mdescribe `frontline_phones_details`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `frontline_phones_details`[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mSHOW FIELDS FROM `frontline_schedule_tasks`[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mdescribe `frontline_schedule_tasks`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `frontline_schedule_tasks`[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW FIELDS FROM `frontline_smsinternet`[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mdescribe `frontline_smsinternet`[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSHOW KEYS FROM `frontline_smsinternet`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSHOW FIELDS FROM `frontline_smsinternet_props`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mdescribe `frontline_smsinternet_props`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW KEYS FROM `frontline_smsinternet_props`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateSms (20091104191813)
+Migrating to CreateMessages (20091104193537)
+  [4;35;1mSQL (389.6ms)[0m   [0mCREATE TABLE `messages` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `number` varchar(255), `text` text, `message_type` varchar(255), `status` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091104193537')[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW FIELDS FROM `frontline_actions_triggers`[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mdescribe `frontline_actions_triggers`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `frontline_actions_triggers`[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mSHOW FIELDS FROM `frontline_contacts`[0m
+  [4;36;1mSQL (2.6ms)[0m   [0;1mdescribe `frontline_contacts`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW KEYS FROM `frontline_contacts`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW FIELDS FROM `frontline_email_accounts`[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mdescribe `frontline_email_accounts`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW KEYS FROM `frontline_email_accounts`[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mSHOW FIELDS FROM `frontline_emails`[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1mdescribe `frontline_emails`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW KEYS FROM `frontline_emails`[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1mSHOW FIELDS FROM `frontline_form_field_properties`[0m
+  [4;35;1mSQL (2.5ms)[0m   [0mdescribe `frontline_form_field_properties`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSHOW KEYS FROM `frontline_form_field_properties`[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mSHOW FIELDS FROM `frontline_form_field_results`[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mdescribe `frontline_form_field_results`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `frontline_form_field_results`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW FIELDS FROM `frontline_form_fields`[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mdescribe `frontline_form_fields`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW KEYS FROM `frontline_form_fields`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSHOW FIELDS FROM `frontline_form_responses`[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mdescribe `frontline_form_responses`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `frontline_form_responses`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW FIELDS FROM `frontline_forms`[0m
+  [4;35;1mSQL (2.3ms)[0m   [0mdescribe `frontline_forms`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `frontline_forms`[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSHOW FIELDS FROM `frontline_forms_permission`[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mdescribe `frontline_forms_permission`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW KEYS FROM `frontline_forms_permission`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW FIELDS FROM `frontline_groups`[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mdescribe `frontline_groups`[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW KEYS FROM `frontline_groups`[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSHOW FIELDS FROM `frontline_groups_members`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mdescribe `frontline_groups_members`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `frontline_groups_members`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSHOW FIELDS FROM `frontline_keywordActions`[0m
+  [4;35;1mSQL (2.4ms)[0m   [0mdescribe `frontline_keywordActions`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `frontline_keywordActions`[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mSHOW FIELDS FROM `frontline_keyword_lists_members`[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mdescribe `frontline_keyword_lists_members`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `frontline_keyword_lists_members`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW FIELDS FROM `frontline_keywords`[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mdescribe `frontline_keywords`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW KEYS FROM `frontline_keywords`[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mSHOW FIELDS FROM `frontline_messages`[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1mdescribe `frontline_messages`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `frontline_messages`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW FIELDS FROM `frontline_phones_details`[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mdescribe `frontline_phones_details`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `frontline_phones_details`[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mSHOW FIELDS FROM `frontline_schedule_tasks`[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mdescribe `frontline_schedule_tasks`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `frontline_schedule_tasks`[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW FIELDS FROM `frontline_smsinternet`[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mdescribe `frontline_smsinternet`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW KEYS FROM `frontline_smsinternet`[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSHOW FIELDS FROM `frontline_smsinternet_props`[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mdescribe `frontline_smsinternet_props`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `frontline_smsinternet_props`[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+  [4;35;1mSQL (2.5ms)[0m   [0mdescribe `messages`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW KEYS FROM `messages`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OperatorController#fetch (for 127.0.0.1 at 2009-11-05 12:09:05) [GET]
+  [4;35;1mSms Load (0.7ms)[0m   [0mSELECT * FROM `frontline_messages` WHERE (`frontline_messages`.`type` = 1 AND `frontline_messages`.`status` = 1) [0m
+  [4;36;1mMessage Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+
+ArgumentError (wrong number of arguments (2 for 0)):
+  app/models/message.rb:9:in `new_from_sms'
+  app/controllers/operator_controller.rb:7:in `fetch'
+  app/controllers/operator_controller.rb:6:in `each'
+  app/controllers/operator_controller.rb:6:in `fetch'
+
+Rendered rescues/_trace (43.8ms)
+Rendered rescues/_request_and_response (1.7ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OperatorController#fetch (for 127.0.0.1 at 2009-11-05 12:10:31) [GET]
+  [4;36;1mSms Load (0.7ms)[0m   [0;1mSELECT * FROM `frontline_messages` WHERE (`frontline_messages`.`type` = 1 AND `frontline_messages`.`status` = 1) [0m
+  [4;35;1mMessage Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+
+ArgumentError (wrong number of arguments (2 for 0)):
+  app/models/message.rb:9:in `new_from_sms'
+  app/controllers/operator_controller.rb:7:in `fetch'
+  app/controllers/operator_controller.rb:6:in `each'
+  app/controllers/operator_controller.rb:6:in `fetch'
+
+Rendered rescues/_trace (43.3ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OperatorController#fetch (for 127.0.0.1 at 2009-11-05 12:10:52) [GET]
+  [4;35;1mSms Load (0.7ms)[0m   [0mSELECT * FROM `frontline_messages` WHERE (`frontline_messages`.`type` = 1 AND `frontline_messages`.`status` = 1) [0m
+  [4;36;1mMessage Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+
+ArgumentError (wrong number of arguments (2 for 0)):
+  app/models/message.rb:10:in `new_from_sms'
+  app/controllers/operator_controller.rb:7:in `fetch'
+  app/controllers/operator_controller.rb:6:in `each'
+  app/controllers/operator_controller.rb:6:in `fetch'
+
+Rendered rescues/_trace (121.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OperatorController#fetch (for 127.0.0.1 at 2009-11-05 12:11:48) [GET]
+  [4;36;1mSms Load (6.0ms)[0m   [0;1mSELECT * FROM `frontline_messages` WHERE (`frontline_messages`.`type` = 1 AND `frontline_messages`.`status` = 1) [0m
+  [4;35;1mMessage Columns (24.9ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+
+ArgumentError (wrong number of arguments (2 for 0)):
+  app/models/message.rb:9:in `new_from_sms'
+  app/controllers/operator_controller.rb:7:in `fetch'
+  app/controllers/operator_controller.rb:6:in `each'
+  app/controllers/operator_controller.rb:6:in `fetch'
+
+Rendered rescues/_trace (52.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OperatorController#fetch (for 127.0.0.1 at 2009-11-05 12:11:49) [GET]
+  [4;35;1mSms Load (0.6ms)[0m   [0mSELECT * FROM `frontline_messages` WHERE (`frontline_messages`.`type` = 1 AND `frontline_messages`.`status` = 1) [0m
+  [4;36;1mMessage Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+
+ArgumentError (wrong number of arguments (2 for 0)):
+  app/models/message.rb:9:in `new_from_sms'
+  app/controllers/operator_controller.rb:7:in `fetch'
+  app/controllers/operator_controller.rb:6:in `each'
+  app/controllers/operator_controller.rb:6:in `fetch'
+
+Rendered rescues/_trace (42.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OperatorController#fetch (for 127.0.0.1 at 2009-11-05 12:12:06) [GET]
+  [4;36;1mSms Load (0.7ms)[0m   [0;1mSELECT * FROM `frontline_messages` WHERE (`frontline_messages`.`type` = 1 AND `frontline_messages`.`status` = 1) [0m
+  [4;35;1mMessage Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+
+ArgumentError (wrong number of arguments (2 for 0)):
+  app/controllers/operator_controller.rb:9:in `fetch'
+  app/controllers/operator_controller.rb:6:in `each'
+  app/controllers/operator_controller.rb:6:in `fetch'
+
+Rendered rescues/_trace (129.2ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OperatorController#fetch (for 127.0.0.1 at 2009-11-05 12:12:35) [GET]
+  [4;35;1mSms Load (0.7ms)[0m   [0mSELECT * FROM `frontline_messages` WHERE (`frontline_messages`.`type` = 1 AND `frontline_messages`.`status` = 1) [0m
+  [4;36;1mMessage Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+  [4;35;1mSms Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `frontline_messages`[0m
+
+NoMethodError (undefined method `omsisdnA' for #<Array:0x25b2d20>):
+  app/controllers/operator_controller.rb:11:in `fetch'
+  app/controllers/operator_controller.rb:6:in `each'
+  app/controllers/operator_controller.rb:6:in `fetch'
+
+Rendered rescues/_trace (41.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OperatorController#fetch (for 127.0.0.1 at 2009-11-05 12:12:43) [GET]
+  [4;35;1mSms Load (0.7ms)[0m   [0mSELECT * FROM `frontline_messages` WHERE (`frontline_messages`.`type` = 1 AND `frontline_messages`.`status` = 1) [0m
+  [4;36;1mMessage Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+  [4;35;1mSms Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `frontline_messages`[0m
+
+NoMethodError (undefined method `omsisdnA' for #<Array:0x24b538c>):
+  app/controllers/operator_controller.rb:11:in `fetch'
+  app/controllers/operator_controller.rb:6:in `each'
+  app/controllers/operator_controller.rb:6:in `fetch'
+
+Rendered rescues/_trace (40.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OperatorController#fetch (for 127.0.0.1 at 2009-11-05 12:13:07) [GET]
+  [4;35;1mSms Load (0.7ms)[0m   [0mSELECT * FROM `frontline_messages` WHERE (`frontline_messages`.`type` = 1 AND `frontline_messages`.`status` = 1) [0m
+  [4;36;1mMessage Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+  [4;35;1mSms Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `frontline_messages`[0m
+  [4;36;1mSQL (28.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mMessage Create (23.5ms)[0m   [0mINSERT INTO `messages` (`name`, `number`, `message_type`, `created_at`, `updated_at`, `text`, `status`) VALUES('anonymous', '17184966293', 'incoming', '2008-10-22 13:32:53', '2009-11-05 17:13:07', 'Loc vassar st & memorial 02139', 'received')[0m
+  [4;36;1mSQL (27.1ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mMessage Create (0.3ms)[0m   [0;1mINSERT INTO `messages` (`name`, `number`, `message_type`, `created_at`, `updated_at`, `text`, `status`) VALUES('anonymous', '733455', 'incoming', '2008-10-23 11:11:43', '2009-11-05 17:13:07', 'AT&T FREE Msg: WIN a Black RAZR V3! Rply w/UR email address or visit refillyourgophone.com on UR PC 2 enter and 4 official rules. Reply STOP 2 end mktg msgs', 'received')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mMessage Create (0.3ms)[0m   [0mINSERT INTO `messages` (`name`, `number`, `message_type`, `created_at`, `updated_at`, `text`, `status`) VALUES('anonymous', '2804', 'incoming', '2008-10-29 05:23:56', '2009-11-05 17:13:07', 'AT&T FREE TIP 5 of 5: Search Google for weather, sports & more. Txt ur search (weather Miami) to 46645. Std txt msg rates apply. Reply STOP to end mktg msgs', 'received')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mMessage Create (0.2ms)[0m   [0;1mINSERT INTO `messages` (`name`, `number`, `message_type`, `created_at`, `updated_at`, `text`, `status`) VALUES('anonymous', '3731', 'incoming', '2008-11-19 12:53:28', '2009-11-05 17:13:07', 'AT&T FREE Msg: For every $100 you spend, get bonus airtime and you have UNLIMITED TALK to 70M wireless customers from AT&T. Reply STOP 2 end mktg msgs', 'received')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mMessage Create (0.2ms)[0m   [0mINSERT INTO `messages` (`name`, `number`, `message_type`, `created_at`, `updated_at`, `text`, `status`) VALUES('anonymous', '3731', 'incoming', '2008-12-15 11:38:38', '2009-11-05 17:13:07', 'AT&T FREE Msg: Tired of refilling? Call 611 today and add $100 to your account, get one year expiration plus bonus airtime. Reply STOP 2 end mktg msgs', 'received')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mMessage Create (0.3ms)[0m   [0;1mINSERT INTO `messages` (`name`, `number`, `message_type`, `created_at`, `updated_at`, `text`, `status`) VALUES('anonymous', '01150937089310', 'incoming', '2008-12-16 17:58:25', '2009-11-05 17:13:07', 'Hi dear Auntie Joe, this is your son who loves u so much:Edson, i think to you. I want to hear your voice but i can\'t find u by your cell. My mom said to', 'received')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mMessage Create (0.2ms)[0m   [0mINSERT INTO `messages` (`name`, `number`, `message_type`, `created_at`, `updated_at`, `text`, `status`) VALUES('anonymous', '01150937089310', 'incoming', '2008-12-16 17:58:33', '2009-11-05 17:13:07', 'me that u asked for me. That prove i count in your life. I call u tomorrow from 10 h am. Greet my cousin Mama for me. God bless u. Regards', 'received')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mMessage Create (0.2ms)[0m   [0;1mINSERT INTO `messages` (`name`, `number`, `message_type`, `created_at`, `updated_at`, `text`, `status`) VALUES('anonymous', '3731', 'incoming', '2008-12-18 09:48:44', '2009-11-05 17:13:07', 'AT&T Free Msg: Pay As You Go Rewards program will change on 1/12/09. Level 1 bonus remains $5. All other levels get $10 for every $100 in refills.', 'received')[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mMessage Create (0.2ms)[0m   [0mINSERT INTO `messages` (`name`, `number`, `message_type`, `created_at`, `updated_at`, `text`, `status`) VALUES('anonymous', '724', 'incoming', '2009-05-11 06:32:32', '2009-11-05 17:13:07', 'Free MSG: You have 10 T-Mobile TO GO whenever Minutes remaining.Please refill your account soon by dialing *TOGO from your mobile phone.', 'received')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mMessage Create (0.2ms)[0m   [0;1mINSERT INTO `messages` (`name`, `number`, `message_type`, `created_at`, `updated_at`, `text`, `status`) VALUES('anonymous', '907', 'incoming', '2009-05-11 09:26:17', '2009-11-05 17:13:07', 'Welcome to T-Mobile! To check your balance and refill your account, go to my.t-mobile.com or visit t-zones on your phone. Your T-Mobile number is 8577560205', 'received')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mMessage Create (0.3ms)[0m   [0mINSERT INTO `messages` (`name`, `number`, `message_type`, `created_at`, `updated_at`, `text`, `status`) VALUES('anonymous', '456', 'incoming', '2009-05-11 09:27:53', '2009-11-05 17:13:07', 'Your T-Mobile.com temporary password is FY7UQ7', 'received')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mMessage Create (0.2ms)[0m   [0;1mINSERT INTO `messages` (`name`, `number`, `message_type`, `created_at`, `updated_at`, `text`, `status`) VALUES('anonymous', '456', 'incoming', '2009-05-11 09:52:16', '2009-11-05 17:13:07', 'Your my.T-Mobile.com password has been created or changed. If you didn\'t authorize this action please call 1-800-937-8997 or dial 611 from your T-Mobile phone.', 'received')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mMessage Create (0.2ms)[0m   [0mINSERT INTO `messages` (`name`, `number`, `message_type`, `created_at`, `updated_at`, `text`, `status`) VALUES('anonymous', '+17184966293', 'incoming', '2009-06-11 08:08:22', '2009-11-05 17:13:07', 'srymh1 mushroom', 'received')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mMessage Create (0.2ms)[0m   [0;1mINSERT INTO `messages` (`name`, `number`, `message_type`, `created_at`, `updated_at`, `text`, `status`) VALUES('anonymous', '+17184966293', 'incoming', '2009-06-11 10:45:50', '2009-11-05 17:13:07', 'srymh0 weeds', 'received')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mMessage Create (0.2ms)[0m   [0mINSERT INTO `messages` (`name`, `number`, `message_type`, `created_at`, `updated_at`, `text`, `status`) VALUES('anonymous', '+17184966293', 'incoming', '2009-06-11 10:55:49', '2009-11-05 17:13:07', 'Srymh0 mushroom', 'received')[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mMessage Create (0.3ms)[0m   [0;1mINSERT INTO `messages` (`name`, `number`, `message_type`, `created_at`, `updated_at`, `text`, `status`) VALUES('anonymous', '+17184966293', 'incoming', '2009-06-11 20:22:29', '2009-11-05 17:13:07', 'line srymhe path', 'received')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mMessage Create (0.2ms)[0m   [0mINSERT INTO `messages` (`name`, `number`, `message_type`, `created_at`, `updated_at`, `text`, `status`) VALUES('anonymous', '+17184966293', 'incoming', '2009-06-11 20:28:56', '2009-11-05 17:13:07', 'end srymh4', 'received')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mMessage Create (0.2ms)[0m   [0;1mINSERT INTO `messages` (`name`, `number`, `message_type`, `created_at`, `updated_at`, `text`, `status`) VALUES('anonymous', '+17183030849', 'incoming', '2009-06-26 12:51:29', '2009-11-05 17:13:07', 'dr5ruv8 bens node', 'received')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mMessage Create (0.3ms)[0m   [0mINSERT INTO `messages` (`name`, `number`, `message_type`, `created_at`, `updated_at`, `text`, `status`) VALUES('anonymous', '+17183030849', 'incoming', '2009-06-26 12:53:21', '2009-11-05 17:13:07', 'dr5rutx bush', 'received')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mMessage Create (0.2ms)[0m   [0;1mINSERT INTO `messages` (`name`, `number`, `message_type`, `created_at`, `updated_at`, `text`, `status`) VALUES('anonymous', '+17184966293', 'incoming', '2009-06-26 12:55:43', '2009-11-05 17:13:07', 'dr5rutx mush', 'received')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mMessage Create (0.2ms)[0m   [0mINSERT INTO `messages` (`name`, `number`, `message_type`, `created_at`, `updated_at`, `text`, `status`) VALUES('anonymous', '+17184966293', 'incoming', '2009-06-26 20:38:23', '2009-11-05 17:13:07', 'Dr5rutx mush', 'received')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mMessage Create (0.3ms)[0m   [0;1mINSERT INTO `messages` (`name`, `number`, `message_type`, `created_at`, `updated_at`, `text`, `status`) VALUES('anonymous', '+17184966293', 'incoming', '2009-06-27 06:22:26', '2009-11-05 17:13:07', 'Dr5rutk rock', 'received')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mMessage Create (0.2ms)[0m   [0mINSERT INTO `messages` (`name`, `number`, `message_type`, `created_at`, `updated_at`, `text`, `status`) VALUES('anonymous', '+17184966293', 'incoming', '2009-06-30 08:16:54', '2009-11-05 17:13:07', 'u23rbvg bird', 'received')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mMessage Create (0.3ms)[0m   [0;1mINSERT INTO `messages` (`name`, `number`, `message_type`, `created_at`, `updated_at`, `text`, `status`) VALUES('anonymous', '+14155086769', 'incoming', '2009-09-16 04:48:30', '2009-11-05 17:13:07', 'testing!!', 'received')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mMessage Create (0.2ms)[0m   [0mINSERT INTO `messages` (`name`, `number`, `message_type`, `created_at`, `updated_at`, `text`, `status`) VALUES('anonymous', '+14155086769', 'incoming', '2009-09-28 10:25:09', '2009-11-05 17:13:07', 'dr5ruw home', 'received')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mMessage Create (0.2ms)[0m   [0;1mINSERT INTO `messages` (`name`, `number`, `message_type`, `created_at`, `updated_at`, `text`, `status`) VALUES('anonymous', '+14155086769', 'incoming', '2009-09-28 11:37:06', '2009-11-05 17:13:07', 'dr5ruv bakery', 'received')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mMessage Create (0.2ms)[0m   [0mINSERT INTO `messages` (`name`, `number`, `message_type`, `created_at`, `updated_at`, `text`, `status`) VALUES('anonymous', '+14155086769', 'incoming', '2009-09-30 05:46:23', '2009-11-05 17:13:07', 'test again', 'received')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mMessage Create (0.2ms)[0m   [0;1mINSERT INTO `messages` (`name`, `number`, `message_type`, `created_at`, `updated_at`, `text`, `status`) VALUES('anonymous', '724', 'incoming', '2009-10-04 02:27:10', '2009-11-05 17:13:07', 'Free MSG: Your T-Mobile To Go Whenever Minutes expire soon. Refill your account by 10/07/09,and all unused minutes will extend to the new expiration date.', 'received')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mMessage Create (0.2ms)[0m   [0mINSERT INTO `messages` (`name`, `number`, `message_type`, `created_at`, `updated_at`, `text`, `status`) VALUES('anonymous', '+14155086769', 'incoming', '2009-11-04 05:13:40', '2009-11-05 17:13:07', 'testing bakery', 'received')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mMessage Create (0.2ms)[0m   [0;1mINSERT INTO `messages` (`name`, `number`, `message_type`, `created_at`, `updated_at`, `text`, `status`) VALUES('anonymous', '+14155086769', 'incoming', '2009-11-04 06:16:22', '2009-11-05 17:13:07', 'testing baker', 'received')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mMessage Create (0.2ms)[0m   [0mINSERT INTO `messages` (`name`, `number`, `message_type`, `created_at`, `updated_at`, `text`, `status`) VALUES('anonymous', '+14155086769', 'incoming', '2009-11-04 08:58:12', '2009-11-05 17:13:07', 'testing baker 3', 'received')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+Completed in 476ms (View: 1, DB: 111) | 200 OK [http://localhost/operator/fetch]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateSms (20091104191813)
+Migrating to CreateMessages (20091104193537)
+Migrating to AddQuery (20091105171449)
+  [4;35;1mSQL (182.4ms)[0m   [0mALTER TABLE `messages` ADD `query` varchar(255) DEFAULT ''[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091105171449')[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW FIELDS FROM `frontline_actions_triggers`[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mdescribe `frontline_actions_triggers`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW KEYS FROM `frontline_actions_triggers`[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mSHOW FIELDS FROM `frontline_contacts`[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1mdescribe `frontline_contacts`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW KEYS FROM `frontline_contacts`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW FIELDS FROM `frontline_email_accounts`[0m
+  [4;35;1mSQL (2.5ms)[0m   [0mdescribe `frontline_email_accounts`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW KEYS FROM `frontline_email_accounts`[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mSHOW FIELDS FROM `frontline_emails`[0m
+  [4;36;1mSQL (2.9ms)[0m   [0;1mdescribe `frontline_emails`[0m
+  [4;35;1mSQL (3.3ms)[0m   [0mSHOW KEYS FROM `frontline_emails`[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mSHOW FIELDS FROM `frontline_form_field_properties`[0m
+  [4;35;1mSQL (3.1ms)[0m   [0mdescribe `frontline_form_field_properties`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW KEYS FROM `frontline_form_field_properties`[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSHOW FIELDS FROM `frontline_form_field_results`[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1mdescribe `frontline_form_field_results`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `frontline_form_field_results`[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mSHOW FIELDS FROM `frontline_form_fields`[0m
+  [4;35;1mSQL (2.5ms)[0m   [0mdescribe `frontline_form_fields`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW KEYS FROM `frontline_form_fields`[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSHOW FIELDS FROM `frontline_form_responses`[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mdescribe `frontline_form_responses`[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `frontline_form_responses`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW FIELDS FROM `frontline_forms`[0m
+  [4;35;1mSQL (2.5ms)[0m   [0mdescribe `frontline_forms`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW KEYS FROM `frontline_forms`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSHOW FIELDS FROM `frontline_forms_permission`[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mdescribe `frontline_forms_permission`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `frontline_forms_permission`[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSHOW FIELDS FROM `frontline_groups`[0m
+  [4;35;1mSQL (2.2ms)[0m   [0mdescribe `frontline_groups`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW KEYS FROM `frontline_groups`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSHOW FIELDS FROM `frontline_groups_members`[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mdescribe `frontline_groups_members`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `frontline_groups_members`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSHOW FIELDS FROM `frontline_keywordActions`[0m
+  [4;35;1mSQL (2.7ms)[0m   [0mdescribe `frontline_keywordActions`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW KEYS FROM `frontline_keywordActions`[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mSHOW FIELDS FROM `frontline_keyword_lists_members`[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mdescribe `frontline_keyword_lists_members`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `frontline_keyword_lists_members`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSHOW FIELDS FROM `frontline_keywords`[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mdescribe `frontline_keywords`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW KEYS FROM `frontline_keywords`[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mSHOW FIELDS FROM `frontline_messages`[0m
+  [4;36;1mSQL (23.5ms)[0m   [0;1mdescribe `frontline_messages`[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `frontline_messages`[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW FIELDS FROM `frontline_phones_details`[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mdescribe `frontline_phones_details`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `frontline_phones_details`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSHOW FIELDS FROM `frontline_schedule_tasks`[0m
+  [4;36;1mSQL (2.8ms)[0m   [0;1mdescribe `frontline_schedule_tasks`[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSHOW KEYS FROM `frontline_schedule_tasks`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW FIELDS FROM `frontline_smsinternet`[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mdescribe `frontline_smsinternet`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW KEYS FROM `frontline_smsinternet`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSHOW FIELDS FROM `frontline_smsinternet_props`[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mdescribe `frontline_smsinternet_props`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW KEYS FROM `frontline_smsinternet_props`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+  [4;35;1mSQL (22.3ms)[0m   [0mdescribe `messages`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW KEYS FROM `messages`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OperatorController#answer (for 127.0.0.1 at 2009-11-05 12:18:15) [GET]
+  [4;36;1mMessage Load (0.4ms)[0m   [0;1mSELECT * FROM `messages` [0m
+
+NameError (undefined local variable or method `query' for #<OperatorController:0x257a2e0>):
+  app/controllers/operator_controller.rb:14:in `answer'
+  app/controllers/operator_controller.rb:13:in `each'
+  app/controllers/operator_controller.rb:13:in `answer'
+
+Rendered rescues/_trace (41.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OperatorController#answer (for 127.0.0.1 at 2009-11-05 12:18:59) [GET]
+  [4;36;1mMessage Load (0.4ms)[0m   [0;1mSELECT * FROM `messages` [0m
+  [4;35;1mMessage Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+
+ActionView::MissingTemplate (Missing template operator/answer.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OperatorController#answer (for 127.0.0.1 at 2009-11-05 12:19:31) [GET]
+  [4;35;1mMessage Load (0.5ms)[0m   [0mSELECT * FROM `messages` [0m
+  [4;36;1mMessage Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Completed in 11ms (View: 1, DB: 3) | 200 OK [http://localhost/operator/answer]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OperatorController#answer (for 127.0.0.1 at 2009-11-05 12:19:53) [GET]
+  [4;36;1mMessage Load (0.5ms)[0m   [0;1mSELECT * FROM `messages` [0m
+  [4;35;1mMessage Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Completed in 11ms (View: 1, DB: 3) | 200 OK [http://localhost/operator/answer]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OperatorController#answer (for 127.0.0.1 at 2009-11-05 12:20:41) [GET]
+  [4;35;1mMessage Load (0.4ms)[0m   [0mSELECT * FROM `messages` [0m
+  [4;36;1mMessage Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Completed in 10ms (View: 1, DB: 3) | 200 OK [http://localhost/operator/answer]
+  [4;35;1mSQL (0.5ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OperatorController#answer (for 127.0.0.1 at 2009-11-05 12:21:17) [GET]
+  [4;36;1mMessage Load (0.4ms)[0m   [0;1mSELECT * FROM `messages` [0m
+  [4;35;1mMessage Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSms Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `frontline_messages`[0m
+
+NoMethodError (undefined method `new_outgoing' for #<Class:0x23ccd1c>):
+  app/controllers/operator_controller.rb:21:in `answer'
+  app/controllers/operator_controller.rb:14:in `each'
+  app/controllers/operator_controller.rb:14:in `answer'
+
+Rendered rescues/_trace (114.9ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OperatorController#answer (for 127.0.0.1 at 2009-11-05 12:21:35) [GET]
+  [4;35;1mMessage Load (0.4ms)[0m   [0mSELECT * FROM `messages` [0m
+  [4;36;1mMessage Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+  [4;35;1mSms Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `frontline_messages`[0m
+
+NoMethodError (undefined method `message_type=' for #<Sms:0x238d6f8>):
+  app/models/sms.rb:33:in `new_outgoing'
+  app/controllers/operator_controller.rb:21:in `answer'
+  app/controllers/operator_controller.rb:14:in `each'
+  app/controllers/operator_controller.rb:14:in `answer'
+
+Rendered rescues/_trace (127.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OperatorController#answer (for 127.0.0.1 at 2009-11-05 12:21:45) [GET]
+  [4;35;1mMessage Load (0.5ms)[0m   [0mSELECT * FROM `messages` [0m
+  [4;36;1mMessage Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+  [4;35;1mSms Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `frontline_messages`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSms Create (0.0ms)[0m   [0mMysql::Error: Column 'dispatch_dateTime' cannot be null: INSERT INTO `frontline_messages` (`dispatch_dateTime`, `form_id`, `dest_port`, `dateTimeP`, `form_message`, `smscReference`, `type`, `omsisdnA`, `dmsisdnA`, `content`, `status`) VALUES(NULL, -1, 0, '2009-11-05 17:21:47', 0, NULL, 2, NULL, '+14155086769', 'A bagel is a bread product, traditionally shaped by hand into the form of a ring from yeasted wheat dough, roughly hand-sized, which is first boiled for a short', 4)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+
+ActiveRecord::StatementInvalid (Mysql::Error: Column 'dispatch_dateTime' cannot be null: INSERT INTO `frontline_messages` (`dispatch_dateTime`, `form_id`, `dest_port`, `dateTimeP`, `form_message`, `smscReference`, `type`, `omsisdnA`, `dmsisdnA`, `content`, `status`) VALUES(NULL, -1, 0, '2009-11-05 17:21:47', 0, NULL, 2, NULL, '+14155086769', 'A bagel is a bread product, traditionally shaped by hand into the form of a ring from yeasted wheat dough, roughly hand-sized, which is first boiled for a short', 4)):
+  app/models/sms.rb:41:in `new_outgoing'
+  app/controllers/operator_controller.rb:21:in `answer'
+  app/controllers/operator_controller.rb:14:in `each'
+  app/controllers/operator_controller.rb:14:in `answer'
+
+Rendered rescues/_trace (147.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OperatorController#answer (for 127.0.0.1 at 2009-11-05 12:22:08) [GET]
+  [4;36;1mMessage Load (0.4ms)[0m   [0;1mSELECT * FROM `messages` [0m
+  [4;35;1mMessage Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+  [4;36;1mSms Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `frontline_messages`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSms Create (0.5ms)[0m   [0;1mINSERT INTO `frontline_messages` (`dispatch_dateTime`, `form_id`, `dest_port`, `dateTimeP`, `form_message`, `smscReference`, `type`, `omsisdnA`, `dmsisdnA`, `content`, `status`) VALUES('2009-11-05 17:22:10', -1, 0, '2009-11-05 17:22:10', 0, NULL, 2, NULL, '+14155086769', 'A bagel is a bread product, traditionally shaped by hand into the form of a ring from yeasted wheat dough, roughly hand-sized, which is first boiled for a short', 4)[0m
+  [4;35;1mSQL (42.0ms)[0m   [0mCOMMIT[0m
+Completed in 2006ms (View: 1, DB: 47) | 200 OK [http://localhost/operator/answer]

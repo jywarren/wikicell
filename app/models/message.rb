@@ -1,24 +1,25 @@
 class Message < ActiveRecord::Base
 
-	def send
-		
-	#    t.integer  "type"
-	#    t.integer  "status"
-	#    t.string   "omsisdnA",          :limit => 40
-	#    t.string   "dmsisdnA",          :limit => 40
-	#    t.integer  "dest_port"
-	#    t.string   "content",           :limit => 1024
-	#    t.datetime "dateTimeP",                         :null => false
-	#    t.integer  "smscReference"
-	#    t.datetime "dispatch_dateTime",                 :null => false
-	#    t.integer  "form_message"
-	#    t.integer  "form_id"
-		
-		s = Sms.new
-		# s.omsisdnA = Message.phone_number
-		# s.
-		s.save
-		
+	def send_sms
+    Sms.new_outgoing(self.text,self.number) if self.message_type == 'outgoing'
 	end
+	
+	def self.new_from_sms(sms)
+	  m = Message.new
+      m.message_type = 'incoming'
+      m.status = 'received'
+      m.number = sms.omsisdnA
+      m.name = 'anonymous'
+      m.text = sms.content
+      m.created_at = sms.dateTimeP
+
+      if m.text == 'more'
+        m.query = 'more'
+      else
+        m.query = 'query'
+      end
+      
+    m.save
+  end
 
 end
