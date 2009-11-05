@@ -1161,3 +1161,235 @@ Processing OperatorController#answer (for 127.0.0.1 at 2009-11-05 12:22:08) [GET
   [4;36;1mSms Create (0.5ms)[0m   [0;1mINSERT INTO `frontline_messages` (`dispatch_dateTime`, `form_id`, `dest_port`, `dateTimeP`, `form_message`, `smscReference`, `type`, `omsisdnA`, `dmsisdnA`, `content`, `status`) VALUES('2009-11-05 17:22:10', -1, 0, '2009-11-05 17:22:10', 0, NULL, 2, NULL, '+14155086769', 'A bagel is a bread product, traditionally shaped by hand into the form of a ring from yeasted wheat dough, roughly hand-sized, which is first boiled for a short', 4)[0m
   [4;35;1mSQL (42.0ms)[0m   [0mCOMMIT[0m
 Completed in 2006ms (View: 1, DB: 47) | 200 OK [http://localhost/operator/answer]
+  [4;36;1mSQL (15.7ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (72.0ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (14.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateSms (20091104191813)
+Migrating to CreateMessages (20091104193537)
+Migrating to AddQuery (20091105171449)
+  [4;35;1mSQL (27.6ms)[0m   [0mALTER TABLE `messages` ADD `query` varchar(255) DEFAULT ''[0m
+  [4;36;1mSQL (15.4ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091105171449')[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (14.1ms)[0m   [0;1mSHOW FIELDS FROM `frontline_actions_triggers`[0m
+  [4;35;1mSQL (2.5ms)[0m   [0mdescribe `frontline_actions_triggers`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW KEYS FROM `frontline_actions_triggers`[0m
+  [4;35;1mSQL (6.7ms)[0m   [0mSHOW FIELDS FROM `frontline_contacts`[0m
+  [4;36;1mSQL (3.5ms)[0m   [0;1mdescribe `frontline_contacts`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW KEYS FROM `frontline_contacts`[0m
+  [4;36;1mSQL (31.0ms)[0m   [0;1mSHOW FIELDS FROM `frontline_email_accounts`[0m
+  [4;35;1mSQL (3.8ms)[0m   [0mdescribe `frontline_email_accounts`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW KEYS FROM `frontline_email_accounts`[0m
+  [4;35;1mSQL (4.4ms)[0m   [0mSHOW FIELDS FROM `frontline_emails`[0m
+  [4;36;1mSQL (3.1ms)[0m   [0;1mdescribe `frontline_emails`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW KEYS FROM `frontline_emails`[0m
+  [4;36;1mSQL (3.6ms)[0m   [0;1mSHOW FIELDS FROM `frontline_form_field_properties`[0m
+  [4;35;1mSQL (2.9ms)[0m   [0mdescribe `frontline_form_field_properties`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW KEYS FROM `frontline_form_field_properties`[0m
+  [4;35;1mSQL (19.9ms)[0m   [0mSHOW FIELDS FROM `frontline_form_field_results`[0m
+  [4;36;1mSQL (3.3ms)[0m   [0;1mdescribe `frontline_form_field_results`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW KEYS FROM `frontline_form_field_results`[0m
+  [4;36;1mSQL (3.4ms)[0m   [0;1mSHOW FIELDS FROM `frontline_form_fields`[0m
+  [4;35;1mSQL (2.8ms)[0m   [0mdescribe `frontline_form_fields`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW KEYS FROM `frontline_form_fields`[0m
+  [4;35;1mSQL (4.3ms)[0m   [0mSHOW FIELDS FROM `frontline_form_responses`[0m
+  [4;36;1mSQL (2.8ms)[0m   [0;1mdescribe `frontline_form_responses`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW KEYS FROM `frontline_form_responses`[0m
+  [4;36;1mSQL (3.9ms)[0m   [0;1mSHOW FIELDS FROM `frontline_forms`[0m
+  [4;35;1mSQL (2.7ms)[0m   [0mdescribe `frontline_forms`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW KEYS FROM `frontline_forms`[0m
+  [4;35;1mSQL (4.4ms)[0m   [0mSHOW FIELDS FROM `frontline_forms_permission`[0m
+  [4;36;1mSQL (2.8ms)[0m   [0;1mdescribe `frontline_forms_permission`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW KEYS FROM `frontline_forms_permission`[0m
+  [4;36;1mSQL (3.6ms)[0m   [0;1mSHOW FIELDS FROM `frontline_groups`[0m
+  [4;35;1mSQL (2.6ms)[0m   [0mdescribe `frontline_groups`[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW KEYS FROM `frontline_groups`[0m
+  [4;35;1mSQL (3.4ms)[0m   [0mSHOW FIELDS FROM `frontline_groups_members`[0m
+  [4;36;1mSQL (2.5ms)[0m   [0;1mdescribe `frontline_groups_members`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW KEYS FROM `frontline_groups_members`[0m
+  [4;36;1mSQL (7.3ms)[0m   [0;1mSHOW FIELDS FROM `frontline_keywordActions`[0m
+  [4;35;1mSQL (3.8ms)[0m   [0mdescribe `frontline_keywordActions`[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW KEYS FROM `frontline_keywordActions`[0m
+  [4;35;1mSQL (4.2ms)[0m   [0mSHOW FIELDS FROM `frontline_keyword_lists_members`[0m
+  [4;36;1mSQL (3.1ms)[0m   [0;1mdescribe `frontline_keyword_lists_members`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSHOW KEYS FROM `frontline_keyword_lists_members`[0m
+  [4;36;1mSQL (3.8ms)[0m   [0;1mSHOW FIELDS FROM `frontline_keywords`[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mdescribe `frontline_keywords`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW KEYS FROM `frontline_keywords`[0m
+  [4;35;1mSQL (3.1ms)[0m   [0mSHOW FIELDS FROM `frontline_messages`[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mdescribe `frontline_messages`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `frontline_messages`[0m
+  [4;36;1mSQL (2.6ms)[0m   [0;1mSHOW FIELDS FROM `frontline_phones_details`[0m
+  [4;35;1mSQL (2.4ms)[0m   [0mdescribe `frontline_phones_details`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW KEYS FROM `frontline_phones_details`[0m
+  [4;35;1mSQL (2.8ms)[0m   [0mSHOW FIELDS FROM `frontline_schedule_tasks`[0m
+  [4;36;1mSQL (2.5ms)[0m   [0;1mdescribe `frontline_schedule_tasks`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `frontline_schedule_tasks`[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1mSHOW FIELDS FROM `frontline_smsinternet`[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mdescribe `frontline_smsinternet`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW KEYS FROM `frontline_smsinternet`[0m
+  [4;35;1mSQL (2.2ms)[0m   [0mSHOW FIELDS FROM `frontline_smsinternet_props`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mdescribe `frontline_smsinternet_props`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `frontline_smsinternet_props`[0m
+  [4;36;1mSQL (2.6ms)[0m   [0;1mSHOW FIELDS FROM `keyvalues`[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mdescribe `keyvalues`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW KEYS FROM `keyvalues`[0m
+  [4;35;1mSQL (2.6ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mdescribe `messages`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `messages`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (2.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to AddQuery (20091105171449)
+  [4;35;1mSQL (56.8ms)[0m   [0mDELETE FROM schema_migrations WHERE version = '20091105171449'[0m
+Migrating to CreateMessages (20091104193537)
+  [4;36;1mSQL (5.0ms)[0m   [0;1mDROP TABLE `messages`[0m
+  [4;35;1mSQL (3.7ms)[0m   [0mDELETE FROM schema_migrations WHERE version = '20091104193537'[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSHOW FIELDS FROM `frontline_actions_triggers`[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mdescribe `frontline_actions_triggers`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `frontline_actions_triggers`[0m
+  [4;36;1mSQL (2.9ms)[0m   [0;1mSHOW FIELDS FROM `frontline_contacts`[0m
+  [4;35;1mSQL (2.8ms)[0m   [0mdescribe `frontline_contacts`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW KEYS FROM `frontline_contacts`[0m
+  [4;35;1mSQL (3.1ms)[0m   [0mSHOW FIELDS FROM `frontline_email_accounts`[0m
+  [4;36;1mSQL (3.4ms)[0m   [0;1mdescribe `frontline_email_accounts`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW KEYS FROM `frontline_email_accounts`[0m
+  [4;36;1mSQL (4.1ms)[0m   [0;1mSHOW FIELDS FROM `frontline_emails`[0m
+  [4;35;1mSQL (3.7ms)[0m   [0mdescribe `frontline_emails`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW KEYS FROM `frontline_emails`[0m
+  [4;35;1mSQL (3.1ms)[0m   [0mSHOW FIELDS FROM `frontline_form_field_properties`[0m
+  [4;36;1mSQL (2.8ms)[0m   [0;1mdescribe `frontline_form_field_properties`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW KEYS FROM `frontline_form_field_properties`[0m
+  [4;36;1mSQL (3.7ms)[0m   [0;1mSHOW FIELDS FROM `frontline_form_field_results`[0m
+  [4;35;1mSQL (3.2ms)[0m   [0mdescribe `frontline_form_field_results`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW KEYS FROM `frontline_form_field_results`[0m
+  [4;35;1mSQL (3.1ms)[0m   [0mSHOW FIELDS FROM `frontline_form_fields`[0m
+  [4;36;1mSQL (3.5ms)[0m   [0;1mdescribe `frontline_form_fields`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `frontline_form_fields`[0m
+  [4;36;1mSQL (2.7ms)[0m   [0;1mSHOW FIELDS FROM `frontline_form_responses`[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mdescribe `frontline_form_responses`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW KEYS FROM `frontline_form_responses`[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSHOW FIELDS FROM `frontline_forms`[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mdescribe `frontline_forms`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `frontline_forms`[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW FIELDS FROM `frontline_forms_permission`[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mdescribe `frontline_forms_permission`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW KEYS FROM `frontline_forms_permission`[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mSHOW FIELDS FROM `frontline_groups`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mdescribe `frontline_groups`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `frontline_groups`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSHOW FIELDS FROM `frontline_groups_members`[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mdescribe `frontline_groups_members`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `frontline_groups_members`[0m
+  [4;35;1mSQL (2.7ms)[0m   [0mSHOW FIELDS FROM `frontline_keywordActions`[0m
+  [4;36;1mSQL (3.3ms)[0m   [0;1mdescribe `frontline_keywordActions`[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mSHOW KEYS FROM `frontline_keywordActions`[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mSHOW FIELDS FROM `frontline_keyword_lists_members`[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mdescribe `frontline_keyword_lists_members`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW KEYS FROM `frontline_keyword_lists_members`[0m
+  [4;35;1mSQL (3.1ms)[0m   [0mSHOW FIELDS FROM `frontline_keywords`[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mdescribe `frontline_keywords`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSHOW KEYS FROM `frontline_keywords`[0m
+  [4;36;1mSQL (3.7ms)[0m   [0;1mSHOW FIELDS FROM `frontline_messages`[0m
+  [4;35;1mSQL (4.0ms)[0m   [0mdescribe `frontline_messages`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW KEYS FROM `frontline_messages`[0m
+  [4;35;1mSQL (2.9ms)[0m   [0mSHOW FIELDS FROM `frontline_phones_details`[0m
+  [4;36;1mSQL (3.1ms)[0m   [0;1mdescribe `frontline_phones_details`[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mSHOW KEYS FROM `frontline_phones_details`[0m
+  [4;36;1mSQL (3.2ms)[0m   [0;1mSHOW FIELDS FROM `frontline_schedule_tasks`[0m
+  [4;35;1mSQL (3.4ms)[0m   [0mdescribe `frontline_schedule_tasks`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW KEYS FROM `frontline_schedule_tasks`[0m
+  [4;35;1mSQL (2.8ms)[0m   [0mSHOW FIELDS FROM `frontline_smsinternet`[0m
+  [4;36;1mSQL (2.6ms)[0m   [0;1mdescribe `frontline_smsinternet`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW KEYS FROM `frontline_smsinternet`[0m
+  [4;36;1mSQL (2.6ms)[0m   [0;1mSHOW FIELDS FROM `frontline_smsinternet_props`[0m
+  [4;35;1mSQL (2.6ms)[0m   [0mdescribe `frontline_smsinternet_props`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW KEYS FROM `frontline_smsinternet_props`[0m
+  [4;35;1mSQL (2.8ms)[0m   [0mSHOW FIELDS FROM `keyvalues`[0m
+  [4;36;1mSQL (3.2ms)[0m   [0;1mdescribe `keyvalues`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW KEYS FROM `keyvalues`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateSms (20091104191813)
+Migrating to CreateMessages (20091104193537)
+  [4;35;1mSQL (54.3ms)[0m   [0mCREATE TABLE `messages` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `number` varchar(255), `text` text, `message_type` varchar(255), `status` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091104193537')[0m
+Migrating to AddQuery (20091105171449)
+  [4;35;1mSQL (30.0ms)[0m   [0mALTER TABLE `messages` ADD `query` varchar(255) DEFAULT ''[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091105171449')[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (2.8ms)[0m   [0;1mSHOW FIELDS FROM `frontline_actions_triggers`[0m
+  [4;35;1mSQL (2.7ms)[0m   [0mdescribe `frontline_actions_triggers`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW KEYS FROM `frontline_actions_triggers`[0m
+  [4;35;1mSQL (3.4ms)[0m   [0mSHOW FIELDS FROM `frontline_contacts`[0m
+  [4;36;1mSQL (3.5ms)[0m   [0;1mdescribe `frontline_contacts`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW KEYS FROM `frontline_contacts`[0m
+  [4;36;1mSQL (2.6ms)[0m   [0;1mSHOW FIELDS FROM `frontline_email_accounts`[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mdescribe `frontline_email_accounts`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW KEYS FROM `frontline_email_accounts`[0m
+  [4;35;1mSQL (2.7ms)[0m   [0mSHOW FIELDS FROM `frontline_emails`[0m
+  [4;36;1mSQL (3.2ms)[0m   [0;1mdescribe `frontline_emails`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW KEYS FROM `frontline_emails`[0m
+  [4;36;1mSQL (2.8ms)[0m   [0;1mSHOW FIELDS FROM `frontline_form_field_properties`[0m
+  [4;35;1mSQL (2.5ms)[0m   [0mdescribe `frontline_form_field_properties`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW KEYS FROM `frontline_form_field_properties`[0m
+  [4;35;1mSQL (2.6ms)[0m   [0mSHOW FIELDS FROM `frontline_form_field_results`[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mdescribe `frontline_form_field_results`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `frontline_form_field_results`[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW FIELDS FROM `frontline_form_fields`[0m
+  [4;35;1mSQL (2.9ms)[0m   [0mdescribe `frontline_form_fields`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW KEYS FROM `frontline_form_fields`[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mSHOW FIELDS FROM `frontline_form_responses`[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mdescribe `frontline_form_responses`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `frontline_form_responses`[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW FIELDS FROM `frontline_forms`[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mdescribe `frontline_forms`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW KEYS FROM `frontline_forms`[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mSHOW FIELDS FROM `frontline_forms_permission`[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mdescribe `frontline_forms_permission`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW KEYS FROM `frontline_forms_permission`[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW FIELDS FROM `frontline_groups`[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mdescribe `frontline_groups`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW KEYS FROM `frontline_groups`[0m
+  [4;35;1mSQL (2.2ms)[0m   [0mSHOW FIELDS FROM `frontline_groups_members`[0m
+  [4;36;1mSQL (2.6ms)[0m   [0;1mdescribe `frontline_groups_members`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `frontline_groups_members`[0m
+  [4;36;1mSQL (3.2ms)[0m   [0;1mSHOW FIELDS FROM `frontline_keywordActions`[0m
+  [4;35;1mSQL (2.8ms)[0m   [0mdescribe `frontline_keywordActions`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW KEYS FROM `frontline_keywordActions`[0m
+  [4;35;1mSQL (2.2ms)[0m   [0mSHOW FIELDS FROM `frontline_keyword_lists_members`[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mdescribe `frontline_keyword_lists_members`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `frontline_keyword_lists_members`[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mSHOW FIELDS FROM `frontline_keywords`[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mdescribe `frontline_keywords`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW KEYS FROM `frontline_keywords`[0m
+  [4;35;1mSQL (2.9ms)[0m   [0mSHOW FIELDS FROM `frontline_messages`[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1mdescribe `frontline_messages`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `frontline_messages`[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mSHOW FIELDS FROM `frontline_phones_details`[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mdescribe `frontline_phones_details`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `frontline_phones_details`[0m
+  [4;35;1mSQL (2.4ms)[0m   [0mSHOW FIELDS FROM `frontline_schedule_tasks`[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mdescribe `frontline_schedule_tasks`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `frontline_schedule_tasks`[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mSHOW FIELDS FROM `frontline_smsinternet`[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mdescribe `frontline_smsinternet`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW KEYS FROM `frontline_smsinternet`[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSHOW FIELDS FROM `frontline_smsinternet_props`[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mdescribe `frontline_smsinternet_props`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `frontline_smsinternet_props`[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mSHOW FIELDS FROM `keyvalues`[0m
+  [4;35;1mSQL (2.3ms)[0m   [0mdescribe `keyvalues`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW KEYS FROM `keyvalues`[0m
+  [4;35;1mSQL (3.3ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mdescribe `messages`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW KEYS FROM `messages`[0m
