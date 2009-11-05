@@ -1,0 +1,190 @@
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (6.9ms)[0m   [0;1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (111.1ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateSms (20091104191813)
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (7.2ms)[0m   [0mCREATE TABLE `frontline_actions_triggers` (`action_id` int(11), `message_id` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (99.0ms)[0m   [0mCREATE TABLE `frontline_contacts` (`cid` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(128) NOT NULL, `mobile_msisdn` varchar(40) NOT NULL, `other_msisdn` varchar(40), `email` varchar(256), `notes` varchar(1024), `active` int(11), `forms_port` int(11), `forms_wakeup` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (35.6ms)[0m   [0;1mCREATE UNIQUE INDEX `mobile_msisdn` ON `frontline_contacts` (`mobile_msisdn`)[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (9.1ms)[0m   [0;1mCREATE TABLE `frontline_email_accounts` (`cid` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `account_name` varchar(255) NOT NULL, `account_server` varchar(255), `account_server_port` int(11), `account_password` varchar(40), `account_useSSL` int(11)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (20.5ms)[0m   [0mCREATE UNIQUE INDEX `account_name` ON `frontline_email_accounts` (`account_name`)[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (10.3ms)[0m   [0mCREATE TABLE `frontline_emails` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `status` int(11), `sender` int(11), `recipients` varchar(256), `subject` varchar(128), `content` varchar(256), `date` datetime NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (6.6ms)[0m   [0mCREATE TABLE `frontline_form_field_properties` (`fid` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `field_id` int(11), `name` varchar(256), `value` varchar(256)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (15.0ms)[0m   [0mCREATE TABLE `frontline_form_field_results` (`fid` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `field_id` int(11), `value` varchar(32672), `response_id` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (8.0ms)[0m   [0mCREATE TABLE `frontline_form_fields` (`fid` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `form_id` int(11), `form_position` int(11), `type` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (7.8ms)[0m   [0mCREATE TABLE `frontline_form_responses` (`rid` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `form_id` int(11), `submitter` varchar(256)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (8.4ms)[0m   [0mCREATE TABLE `frontline_forms` (`fid` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(256) NOT NULL, `mobil_id` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (8.1ms)[0m   [0mCREATE TABLE `frontline_forms_permission` (`permission_id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `form_id` int(11), `client_msisdn` varchar(32) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (10.1ms)[0m   [0mCREATE TABLE `frontline_groups` (`gid` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `parent` int(11), `name` varchar(128)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (8.8ms)[0m   [0mCREATE TABLE `frontline_groups_members` (`group_id` int(11), `contact_id` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (11.4ms)[0m   [0mCREATE TABLE `frontline_keywordActions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `type` int(11), `keyword_id` int(11), `command_string` varchar(480), `command_integer` int(11), `hits` int(11), `start_date` datetime NOT NULL, `end_date` datetime NOT NULL, `email_recipient` varchar(480), `email_subject` varchar(480), `external_cmd_type` int(11), `external_cmd` varchar(480), `external_cmd_response_type` int(11), `external_cmd_response_action_type` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (10.0ms)[0m   [0mCREATE TABLE `frontline_keyword_lists_members` (`keyword_id` int(11), `list_type` int(11), `reference_type` int(11), `reference_id` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.7ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (7.9ms)[0m   [0mCREATE TABLE `frontline_keywords` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `parent_id` int(11), `keyword` varchar(40), `description` varchar(256)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (9.3ms)[0m   [0mCREATE TABLE `frontline_messages` (`tid` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `type` int(11), `status` int(11), `omsisdnA` varchar(40), `dmsisdnA` varchar(40), `dest_port` int(11), `content` varchar(1024), `dateTimeP` datetime NOT NULL, `smscReference` int(11), `dispatch_dateTime` datetime NOT NULL, `form_message` int(11), `form_id` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (7.9ms)[0m   [0mCREATE TABLE `frontline_phones_details` (`phone_serial` varchar(128) NOT NULL, `use_sending` int(11), `use_receiving` int(11), `delete_msgs_from_phone` int(11), `use_delivery_reports` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (9.9ms)[0m   [0mCREATE TABLE `frontline_schedule_tasks` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `type` int(11), `text` varchar(256), `sendTo` int(11), `startDate` datetime NOT NULL, `endDate` datetime NOT NULL, `frequency` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.6ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (9.0ms)[0m   [0mCREATE TABLE `frontline_smsinternet` (`isid` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `serv_class` varchar(512), `serv_serial` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.7ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (14.5ms)[0m   [0mCREATE TABLE `frontline_smsinternet_props` (`isid` int(11), `prop_key` varchar(512), `prop_value` varchar(512)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091104191813')[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (2.6ms)[0m   [0;1mSHOW FIELDS FROM `frontline_actions_triggers`[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mdescribe `frontline_actions_triggers`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW KEYS FROM `frontline_actions_triggers`[0m
+  [4;35;1mSQL (2.8ms)[0m   [0mSHOW FIELDS FROM `frontline_contacts`[0m
+  [4;36;1mSQL (2.8ms)[0m   [0;1mdescribe `frontline_contacts`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW KEYS FROM `frontline_contacts`[0m
+  [4;36;1mSQL (2.8ms)[0m   [0;1mSHOW FIELDS FROM `frontline_email_accounts`[0m
+  [4;35;1mSQL (2.9ms)[0m   [0mdescribe `frontline_email_accounts`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW KEYS FROM `frontline_email_accounts`[0m
+  [4;35;1mSQL (3.5ms)[0m   [0mSHOW FIELDS FROM `frontline_emails`[0m
+  [4;36;1mSQL (3.2ms)[0m   [0;1mdescribe `frontline_emails`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW KEYS FROM `frontline_emails`[0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1mSHOW FIELDS FROM `frontline_form_field_properties`[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mdescribe `frontline_form_field_properties`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW KEYS FROM `frontline_form_field_properties`[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mSHOW FIELDS FROM `frontline_form_field_results`[0m
+  [4;36;1mSQL (2.8ms)[0m   [0;1mdescribe `frontline_form_field_results`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW KEYS FROM `frontline_form_field_results`[0m
+  [4;36;1mSQL (3.5ms)[0m   [0;1mSHOW FIELDS FROM `frontline_form_fields`[0m
+  [4;35;1mSQL (2.8ms)[0m   [0mdescribe `frontline_form_fields`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW KEYS FROM `frontline_form_fields`[0m
+  [4;35;1mSQL (2.9ms)[0m   [0mSHOW FIELDS FROM `frontline_form_responses`[0m
+  [4;36;1mSQL (2.8ms)[0m   [0;1mdescribe `frontline_form_responses`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW KEYS FROM `frontline_form_responses`[0m
+  [4;36;1mSQL (2.5ms)[0m   [0;1mSHOW FIELDS FROM `frontline_forms`[0m
+  [4;35;1mSQL (2.3ms)[0m   [0mdescribe `frontline_forms`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW KEYS FROM `frontline_forms`[0m
+  [4;35;1mSQL (2.4ms)[0m   [0mSHOW FIELDS FROM `frontline_forms_permission`[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mdescribe `frontline_forms_permission`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW KEYS FROM `frontline_forms_permission`[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1mSHOW FIELDS FROM `frontline_groups`[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mdescribe `frontline_groups`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW KEYS FROM `frontline_groups`[0m
+  [4;35;1mSQL (2.3ms)[0m   [0mSHOW FIELDS FROM `frontline_groups_members`[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mdescribe `frontline_groups_members`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW KEYS FROM `frontline_groups_members`[0m
+  [4;36;1mSQL (4.0ms)[0m   [0;1mSHOW FIELDS FROM `frontline_keywordActions`[0m
+  [4;35;1mSQL (3.4ms)[0m   [0mdescribe `frontline_keywordActions`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW KEYS FROM `frontline_keywordActions`[0m
+  [4;35;1mSQL (3.5ms)[0m   [0mSHOW FIELDS FROM `frontline_keyword_lists_members`[0m
+  [4;36;1mSQL (3.1ms)[0m   [0;1mdescribe `frontline_keyword_lists_members`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW KEYS FROM `frontline_keyword_lists_members`[0m
+  [4;36;1mSQL (11.4ms)[0m   [0;1mSHOW FIELDS FROM `frontline_keywords`[0m
+  [4;35;1mSQL (4.1ms)[0m   [0mdescribe `frontline_keywords`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW KEYS FROM `frontline_keywords`[0m
+  [4;35;1mSQL (5.3ms)[0m   [0mSHOW FIELDS FROM `frontline_messages`[0m
+  [4;36;1mSQL (2.7ms)[0m   [0;1mdescribe `frontline_messages`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW KEYS FROM `frontline_messages`[0m
+  [4;36;1mSQL (2.5ms)[0m   [0;1mSHOW FIELDS FROM `frontline_phones_details`[0m
+  [4;35;1mSQL (2.2ms)[0m   [0mdescribe `frontline_phones_details`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW KEYS FROM `frontline_phones_details`[0m
+  [4;35;1mSQL (4.8ms)[0m   [0mSHOW FIELDS FROM `frontline_schedule_tasks`[0m
+  [4;36;1mSQL (2.5ms)[0m   [0;1mdescribe `frontline_schedule_tasks`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW KEYS FROM `frontline_schedule_tasks`[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW FIELDS FROM `frontline_smsinternet`[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mdescribe `frontline_smsinternet`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW KEYS FROM `frontline_smsinternet`[0m
+  [4;35;1mSQL (2.3ms)[0m   [0mSHOW FIELDS FROM `frontline_smsinternet_props`[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mdescribe `frontline_smsinternet_props`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW KEYS FROM `frontline_smsinternet_props`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateSms (20091104191813)
+Migrating to CreateMessages (20091104193537)
+  [4;35;1mSQL (85.3ms)[0m   [0mCREATE TABLE `messages` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `author` varchar(255), `text` varchar(255), `source` varchar(255), `location_string` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (8.8ms)[0m   [0;1mCREATE TABLE `keyvalues` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `key` varchar(255), `value` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (3.5ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091104193537')[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (4.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (2.6ms)[0m   [0mSHOW FIELDS FROM `frontline_actions_triggers`[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1mdescribe `frontline_actions_triggers`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `frontline_actions_triggers`[0m
+  [4;36;1mSQL (2.8ms)[0m   [0;1mSHOW FIELDS FROM `frontline_contacts`[0m
+  [4;35;1mSQL (2.9ms)[0m   [0mdescribe `frontline_contacts`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW KEYS FROM `frontline_contacts`[0m
+  [4;35;1mSQL (2.6ms)[0m   [0mSHOW FIELDS FROM `frontline_email_accounts`[0m
+  [4;36;1mSQL (2.6ms)[0m   [0;1mdescribe `frontline_email_accounts`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW KEYS FROM `frontline_email_accounts`[0m
+  [4;36;1mSQL (2.6ms)[0m   [0;1mSHOW FIELDS FROM `frontline_emails`[0m
+  [4;35;1mSQL (2.7ms)[0m   [0mdescribe `frontline_emails`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW KEYS FROM `frontline_emails`[0m
+  [4;35;1mSQL (3.1ms)[0m   [0mSHOW FIELDS FROM `frontline_form_field_properties`[0m
+  [4;36;1mSQL (2.8ms)[0m   [0;1mdescribe `frontline_form_field_properties`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW KEYS FROM `frontline_form_field_properties`[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW FIELDS FROM `frontline_form_field_results`[0m
+  [4;35;1mSQL (2.8ms)[0m   [0mdescribe `frontline_form_field_results`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW KEYS FROM `frontline_form_field_results`[0m
+  [4;35;1mSQL (3.1ms)[0m   [0mSHOW FIELDS FROM `frontline_form_fields`[0m
+  [4;36;1mSQL (2.7ms)[0m   [0;1mdescribe `frontline_form_fields`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `frontline_form_fields`[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1mSHOW FIELDS FROM `frontline_form_responses`[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mdescribe `frontline_form_responses`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW KEYS FROM `frontline_form_responses`[0m
+  [4;35;1mSQL (2.2ms)[0m   [0mSHOW FIELDS FROM `frontline_forms`[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1mdescribe `frontline_forms`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `frontline_forms`[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW FIELDS FROM `frontline_forms_permission`[0m
+  [4;35;1mSQL (2.2ms)[0m   [0mdescribe `frontline_forms_permission`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW KEYS FROM `frontline_forms_permission`[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mSHOW FIELDS FROM `frontline_groups`[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mdescribe `frontline_groups`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `frontline_groups`[0m
+  [4;36;1mSQL (2.6ms)[0m   [0;1mSHOW FIELDS FROM `frontline_groups_members`[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mdescribe `frontline_groups_members`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `frontline_groups_members`[0m
+  [4;35;1mSQL (3.3ms)[0m   [0mSHOW FIELDS FROM `frontline_keywordActions`[0m
+  [4;36;1mSQL (2.8ms)[0m   [0;1mdescribe `frontline_keywordActions`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `frontline_keywordActions`[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mSHOW FIELDS FROM `frontline_keyword_lists_members`[0m
+  [4;35;1mSQL (2.2ms)[0m   [0mdescribe `frontline_keyword_lists_members`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `frontline_keyword_lists_members`[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mSHOW FIELDS FROM `frontline_keywords`[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mdescribe `frontline_keywords`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `frontline_keywords`[0m
+  [4;36;1mSQL (2.8ms)[0m   [0;1mSHOW FIELDS FROM `frontline_messages`[0m
+  [4;35;1mSQL (2.6ms)[0m   [0mdescribe `frontline_messages`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW KEYS FROM `frontline_messages`[0m
+  [4;35;1mSQL (2.2ms)[0m   [0mSHOW FIELDS FROM `frontline_phones_details`[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1mdescribe `frontline_phones_details`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `frontline_phones_details`[0m
+  [4;36;1mSQL (2.6ms)[0m   [0;1mSHOW FIELDS FROM `frontline_schedule_tasks`[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mdescribe `frontline_schedule_tasks`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW KEYS FROM `frontline_schedule_tasks`[0m
+  [4;35;1mSQL (2.3ms)[0m   [0mSHOW FIELDS FROM `frontline_smsinternet`[0m
+  [4;36;1mSQL (2.9ms)[0m   [0;1mdescribe `frontline_smsinternet`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW KEYS FROM `frontline_smsinternet`[0m
+  [4;36;1mSQL (3.1ms)[0m   [0;1mSHOW FIELDS FROM `frontline_smsinternet_props`[0m
+  [4;35;1mSQL (2.9ms)[0m   [0mdescribe `frontline_smsinternet_props`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW KEYS FROM `frontline_smsinternet_props`[0m
+  [4;35;1mSQL (3.9ms)[0m   [0mSHOW FIELDS FROM `keyvalues`[0m
+  [4;36;1mSQL (3.2ms)[0m   [0;1mdescribe `keyvalues`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSHOW KEYS FROM `keyvalues`[0m
+  [4;36;1mSQL (3.7ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+  [4;35;1mSQL (3.7ms)[0m   [0mdescribe `messages`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW KEYS FROM `messages`[0m
