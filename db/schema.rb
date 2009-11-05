@@ -162,6 +162,13 @@ ActiveRecord::Schema.define(:version => 20091105171449) do
     t.string  "prop_value", :limit => 512
   end
 
+  create_table "keyvalues", :force => true do |t|
+    t.string   "key"
+    t.string   "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "messages", :force => true do |t|
     t.string   "name"
     t.string   "number"
