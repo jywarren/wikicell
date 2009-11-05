@@ -68,7 +68,6 @@ class Wikipedia
   # end
   
   def self.best(query)
-    puts 'best match for "'+query+'"'
     search = self.search(query)
     begin
       self.parse(search)

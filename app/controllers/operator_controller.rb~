@@ -20,7 +20,7 @@ class OperatorController < ApplicationController
 	article = Rails.cache.read('query:'+message.text)
 	article ||= Rails.cache.write('query:'+message.text,Wikipedia.chunks(message.text,160))
 
-        Sms.new_outgoing(article[0],article)
+        Sms.new_outgoing(article[0],message.number)
       
       elsif message.query == 'more'
         # asking for more
