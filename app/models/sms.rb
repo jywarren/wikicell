@@ -41,7 +41,7 @@ class Sms < ActiveRecord::Base
       sms.omsisdnA = '* N/A *'
       sms.dmsisdnA = number
       sms.content = text
-      sms.dispatch_dateTime = DateTime.now
+      sms.dispatch_dateTime = 0
       sms.dateTimeP = DateTime.now
       sms.form_message = 0
       sms.form_id = -1
