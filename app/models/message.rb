@@ -1,25 +1,20 @@
 class Message < ActiveRecord::Base
 
-	def send_sms
-    Sms.new_outgoing(self.text,self.number) if self.message_type == 'outgoing'
+	def before_save
+	      if self.text.downcase.strip == 'more'
+	        self.query = 'more'
+	      else
+	        self.query = 'query'
+	      end
 	end
-	
-	def self.new_from_sms(sms)
-	  m = Message.new
-      m.message_type = 'incoming'
-      m.status = 'received'
-      m.number = sms.omsisdnA
-      m.name = 'anonymous'
-      m.text = sms.content
-      m.created_at = sms.dateTimeP
-
-      if m.text == 'more'
-        m.query = 'more'
-      else
-        m.query = 'query'
-      end
-      
-    m.save
-  end
+	def validate
+		if Message.find :all, :conditions => {:text => self.text, :sms_id => self.sms_id}
+			puts 'failed - duplicate message'
+			false
+		else
+			puts 'imported a message'
+			true
+		end
+	end
 
 end

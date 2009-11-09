@@ -13,14 +13,19 @@ class Wikipedia
                   :format => 'xml',
                   :search => query }
       document = self.get('/w/api.php', :query => options)
+	puts document
         # For a short summary:
         # document['SearchSuggestion']['Section']['Item'][0]['Description']
       # but we want the title:
-      items = document['SearchSuggestion']['Section']['Item']
-      if (items.is_a? Array)
-        items[0]['Text']
+      if document['SearchSuggestion'] && document['SearchSuggestion']['Section'] && document['SearchSuggestion']['Section']['Item']
+	      items = document['SearchSuggestion']['Section']['Item']
+	      if (items.is_a? Array)
+	        items[0]['Text']
+	      else
+	        items['Text']
+	      end
       else
-        items['Text']
+	false
       end
   end
   
@@ -34,6 +39,14 @@ class Wikipedia
     document['api']['query']['pages']['page']['revisions']['rev']
   end
   
+  def self.clean_nodes(node)
+    	node.remove if node.to_s[0..28] == "<div class='metadata topicon'"
+    	node.remove if node.to_s[0..20] == "<div class='dablink'>"
+	node.remove if node.to_s[0..63] == "<table class='metadata plainlinks ambox ambox-content' style=''>"
+    	node.remove if node.to_s[0..1] == "\n"
+    	node.remove if node.to_s[0..25] == "<div class='thumb tright'>"
+  end
+
   def self.parse(page)
     options = { :action => 'parse',
                 :format => 'xml',
@@ -43,15 +56,17 @@ class Wikipedia
 
     xml = REXML::Document.new("<xml>"+document['api']['parse']['text']+"</xml>")[0]
     
-    xml[0].remove if xml[0].to_s[0..28] == "<div class='metadata topicon'"
-    xml[0].remove if xml[0].to_s[0..1] == "\n"
-    xml[0].remove if xml[0].to_s[0..20] == "<div class='dablink'>"
-    xml[0].remove if xml[0].to_s[0..1] == "\n"
-    xml[0].remove if xml[0].to_s[0..63] == "<table class='metadata plainlinks ambox ambox-content' style=''>"
-    xml[0].remove if xml[0].to_s[0..1] == "\n"
-    xml[0].remove if xml[0].to_s[0..25] == "<div class='thumb tright'>"
-    xml[0].remove if xml[0].to_s[0..1] == "\n"
-    xml.to_s.gsub(/<[a-zA-Z\/][^>]*>/,'').gsub('\n','')
+    xml.each do |node|
+	Wikipedia.clean_nodes(node)
+	if node.is_a? REXML::Element
+		node.each do |subnode|
+			Wikipedia.clean_nodes(node)
+		end
+	end
+    end
+
+    response = xml.to_s.strip.gsub(/<[a-zA-Z\/][^>]*>/,'').gsub('\n','')
+    response
   end
   
   # def self.article(title)
@@ -71,7 +86,11 @@ class Wikipedia
     puts 'best match for "'+query+'"'
     search = self.search(query)
     begin
+    if search
       self.parse(search)
+    else
+	false
+    end
     # rescue
       # 'no match for "'+query+'"'
     end
@@ -80,10 +99,14 @@ class Wikipedia
   def self.chunks(query,length)
     string = self.best(query)
     chunks = []
+    if string
     while string.length > 0
       chunks.push string.slice!(0..length-1)
     end
     chunks
+    else
+	false
+    end
   end
       
 end

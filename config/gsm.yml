@@ -1,0 +1,3 @@
+--- 
+device: 
+  port: /dev/ttyACM0

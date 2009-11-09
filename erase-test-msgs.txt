@@ -1,0 +1,1 @@
+Sms.find(:all, :conditions => ['tid > 3']).each {|ss| ss.delete}

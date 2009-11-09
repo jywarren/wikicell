@@ -1,0 +1,735 @@
+# Logfile created on Mon Nov 09 17:46:31 -0500 2009 by logger.rb/22283
+*** below you find the most recent exception thrown, this will be likely (but not certainly) the exception that made the application exit abnormally ***
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+*** below you find all exception objects found in memory, some of them may have been thrown in your application, others may just be in memory because they are standard exceptions ***
+#<NoMemoryError: failed to allocate memory>
+#<SystemStackError: stack level too deep>
+#<fatal: exception reentered>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+*** below you find the most recent exception thrown, this will be likely (but not certainly) the exception that made the application exit abnormally ***
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+*** below you find all exception objects found in memory, some of them may have been thrown in your application, others may just be in memory because they are standard exceptions ***
+#<NoMemoryError: failed to allocate memory>
+#<SystemStackError: stack level too deep>
+#<fatal: exception reentered>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+*** below you find the most recent exception thrown, this will be likely (but not certainly) the exception that made the application exit abnormally ***
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+*** below you find all exception objects found in memory, some of them may have been thrown in your application, others may just be in memory because they are standard exceptions ***
+#<NoMemoryError: failed to allocate memory>
+#<SystemStackError: stack level too deep>
+#<fatal: exception reentered>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+*** below you find the most recent exception thrown, this will be likely (but not certainly) the exception that made the application exit abnormally ***
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+*** below you find all exception objects found in memory, some of them may have been thrown in your application, others may just be in memory because they are standard exceptions ***
+#<NoMemoryError: failed to allocate memory>
+#<SystemStackError: stack level too deep>
+#<fatal: exception reentered>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+*** below you find the most recent exception thrown, this will be likely (but not certainly) the exception that made the application exit abnormally ***
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+*** below you find all exception objects found in memory, some of them may have been thrown in your application, others may just be in memory because they are standard exceptions ***
+#<NoMemoryError: failed to allocate memory>
+#<SystemStackError: stack level too deep>
+#<fatal: exception reentered>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+*** below you find the most recent exception thrown, this will be likely (but not certainly) the exception that made the application exit abnormally ***
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+*** below you find all exception objects found in memory, some of them may have been thrown in your application, others may just be in memory because they are standard exceptions ***
+#<NoMemoryError: failed to allocate memory>
+#<SystemStackError: stack level too deep>
+#<fatal: exception reentered>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+*** below you find the most recent exception thrown, this will be likely (but not certainly) the exception that made the application exit abnormally ***
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+*** below you find all exception objects found in memory, some of them may have been thrown in your application, others may just be in memory because they are standard exceptions ***
+#<NoMemoryError: failed to allocate memory>
+#<SystemStackError: stack level too deep>
+#<fatal: exception reentered>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+*** below you find the most recent exception thrown, this will be likely (but not certainly) the exception that made the application exit abnormally ***
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+*** below you find all exception objects found in memory, some of them may have been thrown in your application, others may just be in memory because they are standard exceptions ***
+#<NoMemoryError: failed to allocate memory>
+#<SystemStackError: stack level too deep>
+#<fatal: exception reentered>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+*** below you find the most recent exception thrown, this will be likely (but not certainly) the exception that made the application exit abnormally ***
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+*** below you find all exception objects found in memory, some of them may have been thrown in your application, others may just be in memory because they are standard exceptions ***
+#<NoMemoryError: failed to allocate memory>
+#<SystemStackError: stack level too deep>
+#<fatal: exception reentered>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+*** below you find the most recent exception thrown, this will be likely (but not certainly) the exception that made the application exit abnormally ***
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+*** below you find all exception objects found in memory, some of them may have been thrown in your application, others may just be in memory because they are standard exceptions ***
+#<NoMemoryError: failed to allocate memory>
+#<SystemStackError: stack level too deep>
+#<fatal: exception reentered>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+*** below you find the most recent exception thrown, this will be likely (but not certainly) the exception that made the application exit abnormally ***
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+*** below you find all exception objects found in memory, some of them may have been thrown in your application, others may just be in memory because they are standard exceptions ***
+#<NoMemoryError: failed to allocate memory>
+#<SystemStackError: stack level too deep>
+#<fatal: exception reentered>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+*** below you find the most recent exception thrown, this will be likely (but not certainly) the exception that made the application exit abnormally ***
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+*** below you find all exception objects found in memory, some of them may have been thrown in your application, others may just be in memory because they are standard exceptions ***
+#<NoMemoryError: failed to allocate memory>
+#<SystemStackError: stack level too deep>
+#<fatal: exception reentered>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+*** below you find the most recent exception thrown, this will be likely (but not certainly) the exception that made the application exit abnormally ***
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+*** below you find all exception objects found in memory, some of them may have been thrown in your application, others may just be in memory because they are standard exceptions ***
+#<NoMemoryError: failed to allocate memory>
+#<SystemStackError: stack level too deep>
+#<fatal: exception reentered>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+*** below you find the most recent exception thrown, this will be likely (but not certainly) the exception that made the application exit abnormally ***
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+*** below you find all exception objects found in memory, some of them may have been thrown in your application, others may just be in memory because they are standard exceptions ***
+#<NoMemoryError: failed to allocate memory>
+#<SystemStackError: stack level too deep>
+#<fatal: exception reentered>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+*** below you find the most recent exception thrown, this will be likely (but not certainly) the exception that made the application exit abnormally ***
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+*** below you find all exception objects found in memory, some of them may have been thrown in your application, others may just be in memory because they are standard exceptions ***
+#<NoMemoryError: failed to allocate memory>
+#<SystemStackError: stack level too deep>
+#<fatal: exception reentered>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+*** below you find the most recent exception thrown, this will be likely (but not certainly) the exception that made the application exit abnormally ***
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+*** below you find all exception objects found in memory, some of them may have been thrown in your application, others may just be in memory because they are standard exceptions ***
+#<NoMemoryError: failed to allocate memory>
+#<SystemStackError: stack level too deep>
+#<fatal: exception reentered>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+*** below you find the most recent exception thrown, this will be likely (but not certainly) the exception that made the application exit abnormally ***
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+*** below you find all exception objects found in memory, some of them may have been thrown in your application, others may just be in memory because they are standard exceptions ***
+#<NoMemoryError: failed to allocate memory>
+#<SystemStackError: stack level too deep>
+#<fatal: exception reentered>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+*** below you find the most recent exception thrown, this will be likely (but not certainly) the exception that made the application exit abnormally ***
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+*** below you find all exception objects found in memory, some of them may have been thrown in your application, others may just be in memory because they are standard exceptions ***
+#<NoMemoryError: failed to allocate memory>
+#<SystemStackError: stack level too deep>
+#<fatal: exception reentered>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+*** below you find the most recent exception thrown, this will be likely (but not certainly) the exception that made the application exit abnormally ***
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+*** below you find all exception objects found in memory, some of them may have been thrown in your application, others may just be in memory because they are standard exceptions ***
+#<NoMemoryError: failed to allocate memory>
+#<SystemStackError: stack level too deep>
+#<fatal: exception reentered>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+*** below you find the most recent exception thrown, this will be likely (but not certainly) the exception that made the application exit abnormally ***
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+*** below you find all exception objects found in memory, some of them may have been thrown in your application, others may just be in memory because they are standard exceptions ***
+#<NoMemoryError: failed to allocate memory>
+#<SystemStackError: stack level too deep>
+#<fatal: exception reentered>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<SyntaxError: /home/warren/www/wikicell/lib/daemons/gsm.rb:58: syntax error
+	        message.status = 'complete'
+	               ^>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+Mon Nov 09 18:02:59 -0500 2009
+SIGTERM
+["/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/monitor.rb:46:in `sleep'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/monitor.rb:46:in `watch'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/monitor.rb:45:in `each'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/monitor.rb:45:in `watch'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/monitor.rb:44:in `loop'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/monitor.rb:44:in `watch'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/monitor.rb:84:in `start_with_pidfile'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/monitor.rb:64:in `fork'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/monitor.rb:64:in `start_with_pidfile'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/monitor.rb:111:in `start'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/application_group.rb:113:in `create_monitor'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/application.rb:244:in `start'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/controller.rb:69:in `run'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons.rb:139:in `run'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/cmdline.rb:105:in `call'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/cmdline.rb:105:in `catch_exceptions'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons.rb:138:in `run'", "script/../lib/daemons/gsm_ctl:25"]
+*** below you find the most recent exception thrown, this will be likely (but not certainly) the exception that made the application exit abnormally ***
+#<NameError: uninitialized constant Cellkit>
+*** below you find all exception objects found in memory, some of them may have been thrown in your application, others may just be in memory because they are standard exceptions ***
+#<NoMemoryError: failed to allocate memory>
+#<SystemStackError: stack level too deep>
+#<fatal: exception reentered>
+#<Errno::EACCES: Permission denied - /dev/ttyACM0>
+#<MissingSourceFile: no such file to load -- serialport>
+#<NameError: uninitialized constant GSM>
+#<NameError: uninitialized constant Cellkit::GSM>
+#<NameError: uninitialized constant Cellkit>
+*** below you find the most recent exception thrown, this will be likely (but not certainly) the exception that made the application exit abnormally ***
+#<NameError: uninitialized constant Cellkit>
+*** below you find all exception objects found in memory, some of them may have been thrown in your application, others may just be in memory because they are standard exceptions ***
+#<NoMemoryError: failed to allocate memory>
+#<SystemStackError: stack level too deep>
+#<fatal: exception reentered>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::EACCES: Permission denied - /dev/ttyACM0>
+#<MissingSourceFile: no such file to load -- serialport>
+#<NameError: uninitialized constant GSM>
+#<NameError: uninitialized constant Cellkit::GSM>
+#<NameError: uninitialized constant Cellkit>
+*** below you find the most recent exception thrown, this will be likely (but not certainly) the exception that made the application exit abnormally ***
+#<MissingSourceFile: no such file to load -- serialport>
+*** below you find all exception objects found in memory, some of them may have been thrown in your application, others may just be in memory because they are standard exceptions ***
+#<NoMemoryError: failed to allocate memory>
+#<SystemStackError: stack level too deep>
+#<fatal: exception reentered>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::EACCES: Permission denied - /dev/ttyACM0>
+#<NameError: uninitialized constant Cellkit>
+#<MissingSourceFile: no such file to load -- serialport>
+Mon Nov 09 18:05:12 -0500 2009
+SIGTERM
+["/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/monitor.rb:57:in `sleep'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/monitor.rb:57:in `watch'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/monitor.rb:44:in `loop'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/monitor.rb:44:in `watch'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/monitor.rb:84:in `start_with_pidfile'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/monitor.rb:64:in `fork'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/monitor.rb:64:in `start_with_pidfile'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/monitor.rb:111:in `start'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/application_group.rb:113:in `create_monitor'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/application.rb:244:in `start'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/controller.rb:69:in `run'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons.rb:139:in `run'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/cmdline.rb:105:in `call'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/cmdline.rb:105:in `catch_exceptions'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons.rb:138:in `run'", "script/../lib/daemons/gsm_ctl:25"]
+Mon Nov 09 18:17:49 -0500 2009
+SIGTERM
+["/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/monitor.rb:57:in `sleep'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/monitor.rb:57:in `watch'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/monitor.rb:44:in `loop'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/monitor.rb:44:in `watch'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/monitor.rb:84:in `start_with_pidfile'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/monitor.rb:64:in `fork'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/monitor.rb:64:in `start_with_pidfile'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/monitor.rb:111:in `start'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/application_group.rb:113:in `create_monitor'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/application.rb:244:in `start'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/controller.rb:69:in `run'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons.rb:139:in `run'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/cmdline.rb:105:in `call'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/cmdline.rb:105:in `catch_exceptions'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons.rb:138:in `run'", "script/../lib/daemons/gsm_ctl:25"]
+*** below you find the most recent exception thrown, this will be likely (but not certainly) the exception that made the application exit abnormally ***
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb_monitor.pid>
+*** below you find all exception objects found in memory, some of them may have been thrown in your application, others may just be in memory because they are standard exceptions ***
+#<NoMemoryError: failed to allocate memory>
+#<SystemStackError: stack level too deep>
+#<fatal: exception reentered>
+#<SystemExit: Missing these required gems:
+  toholio-serialport  
+
+You're running:
+  ruby 1.8.6.369 at /usr/bin/ruby
+  rubygems 1.3.5 at /home/warren/.gem/ruby/1.8, /usr/lib/ruby/gems/1.8
+
+Run `rake gems:install` to install the missing gems.
+>
+#<MissingSourceFile: no such file to load -- toholio-serialport>
+#<MissingSourceFile: no such file to load -- toholio-serialport>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb_monitor.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb_monitor.pid>
+*** below you find the most recent exception thrown, this will be likely (but not certainly) the exception that made the application exit abnormally ***
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+*** below you find all exception objects found in memory, some of them may have been thrown in your application, others may just be in memory because they are standard exceptions ***
+#<NoMemoryError: failed to allocate memory>
+#<SystemStackError: stack level too deep>
+#<fatal: exception reentered>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+*** below you find the most recent exception thrown, this will be likely (but not certainly) the exception that made the application exit abnormally ***
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb_monitor.pid>
+*** below you find all exception objects found in memory, some of them may have been thrown in your application, others may just be in memory because they are standard exceptions ***
+#<NoMemoryError: failed to allocate memory>
+#<SystemStackError: stack level too deep>
+#<fatal: exception reentered>
+#<SystemExit: Missing these required gems:
+  toholio-serialport  
+
+You're running:
+  ruby 1.8.6.369 at /usr/bin/ruby
+  rubygems 1.3.5 at /home/warren/.gem/ruby/1.8, /usr/lib/ruby/gems/1.8
+
+Run `rake gems:install` to install the missing gems.
+>
+#<MissingSourceFile: no such file to load -- toholio-serialport>
+#<MissingSourceFile: no such file to load -- toholio-serialport>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb_monitor.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb_monitor.pid>
+*** below you find the most recent exception thrown, this will be likely (but not certainly) the exception that made the application exit abnormally ***
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb_monitor.pid>
+*** below you find all exception objects found in memory, some of them may have been thrown in your application, others may just be in memory because they are standard exceptions ***
+#<NoMemoryError: failed to allocate memory>
+#<SystemStackError: stack level too deep>
+#<fatal: exception reentered>
+#<SystemExit: Missing these required gems:
+  toholio-serialport  
+
+You're running:
+  ruby 1.8.6.369 at /usr/bin/ruby
+  rubygems 1.3.5 at /home/warren/.gem/ruby/1.8, /usr/lib/ruby/gems/1.8
+
+Run `rake gems:install` to install the missing gems.
+>
+#<MissingSourceFile: no such file to load -- toholio-serialport>
+#<MissingSourceFile: no such file to load -- toholio-serialport>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb_monitor.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb_monitor.pid>
+*** below you find the most recent exception thrown, this will be likely (but not certainly) the exception that made the application exit abnormally ***
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb_monitor.pid>
+*** below you find all exception objects found in memory, some of them may have been thrown in your application, others may just be in memory because they are standard exceptions ***
+#<NoMemoryError: failed to allocate memory>
+#<SystemStackError: stack level too deep>
+#<fatal: exception reentered>
+#<SystemExit: Missing these required gems:
+  toholio-serialport  
+
+You're running:
+  ruby 1.8.6.369 at /usr/bin/ruby
+  rubygems 1.3.5 at /home/warren/.gem/ruby/1.8, /usr/lib/ruby/gems/1.8
+
+Run `rake gems:install` to install the missing gems.
+>
+#<MissingSourceFile: no such file to load -- toholio-serialport>
+#<MissingSourceFile: no such file to load -- toholio-serialport>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb_monitor.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb_monitor.pid>
+*** below you find the most recent exception thrown, this will be likely (but not certainly) the exception that made the application exit abnormally ***
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb_monitor.pid>
+*** below you find all exception objects found in memory, some of them may have been thrown in your application, others may just be in memory because they are standard exceptions ***
+#<NoMemoryError: failed to allocate memory>
+#<SystemStackError: stack level too deep>
+#<fatal: exception reentered>
+#<SystemExit: Missing these required gems:
+  toholio-serialport  
+
+You're running:
+  ruby 1.8.6.369 at /usr/bin/ruby
+  rubygems 1.3.5 at /home/warren/.gem/ruby/1.8, /usr/lib/ruby/gems/1.8
+
+Run `rake gems:install` to install the missing gems.
+>
+#<MissingSourceFile: no such file to load -- toholio-serialport>
+#<MissingSourceFile: no such file to load -- toholio-serialport>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb_monitor.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb_monitor.pid>
+*** below you find the most recent exception thrown, this will be likely (but not certainly) the exception that made the application exit abnormally ***
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb_monitor.pid>
+*** below you find all exception objects found in memory, some of them may have been thrown in your application, others may just be in memory because they are standard exceptions ***
+#<NoMemoryError: failed to allocate memory>
+#<SystemStackError: stack level too deep>
+#<fatal: exception reentered>
+#<SystemExit: Missing these required gems:
+  toholio-serialport  
+
+You're running:
+  ruby 1.8.6.369 at /usr/bin/ruby
+  rubygems 1.3.5 at /home/warren/.gem/ruby/1.8, /usr/lib/ruby/gems/1.8
+
+Run `rake gems:install` to install the missing gems.
+>
+#<MissingSourceFile: no such file to load -- toholio-serialport>
+#<MissingSourceFile: no such file to load -- toholio-serialport>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb_monitor.pid>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb_monitor.pid>
+Mon Nov 09 18:22:08 -0500 2009
+SIGTERM
+["/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/monitor.rb:57:in `sleep'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/monitor.rb:57:in `watch'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/monitor.rb:44:in `loop'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/monitor.rb:44:in `watch'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/monitor.rb:84:in `start_with_pidfile'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/monitor.rb:64:in `fork'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/monitor.rb:64:in `start_with_pidfile'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/monitor.rb:111:in `start'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/application_group.rb:113:in `create_monitor'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/application.rb:244:in `start'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/application_group.rb:123:in `start_all'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/application_group.rb:122:in `fork'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/application_group.rb:122:in `start_all'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/application_group.rb:121:in `each'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/application_group.rb:121:in `start_all'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/controller.rb:79:in `run'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons.rb:139:in `run'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/cmdline.rb:105:in `call'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons/cmdline.rb:105:in `catch_exceptions'", "/usr/lib/ruby/gems/1.8/gems/daemons-1.0.10/lib/daemons.rb:138:in `run'", "script/../lib/daemons/gsm_ctl:25"]
+*** below you find the most recent exception thrown, this will be likely (but not certainly) the exception that made the application exit abnormally ***
+#<MissingSourceFile: no such file to load -- toholio-serialport>
+*** below you find all exception objects found in memory, some of them may have been thrown in your application, others may just be in memory because they are standard exceptions ***
+#<NoMemoryError: failed to allocate memory>
+#<SystemStackError: stack level too deep>
+#<fatal: exception reentered>
+#<SystemExit: Missing these required gems:
+  toholio-serialport  
+
+You're running:
+  ruby 1.8.6.369 at /usr/bin/ruby
+  rubygems 1.3.5 at /home/warren/.gem/ruby/1.8, /usr/lib/ruby/gems/1.8
+
+Run `rake gems:install` to install the missing gems.
+>
+#<MissingSourceFile: no such file to load -- toholio-serialport>
+#<MissingSourceFile: no such file to load -- toholio-serialport>
+*** below you find the most recent exception thrown, this will be likely (but not certainly) the exception that made the application exit abnormally ***
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+*** below you find all exception objects found in memory, some of them may have been thrown in your application, others may just be in memory because they are standard exceptions ***
+#<NoMemoryError: failed to allocate memory>
+#<SystemStackError: stack level too deep>
+#<fatal: exception reentered>
+#<SystemExit: Missing these required gems:
+  serialport  
+
+You're running:
+  ruby 1.8.6.369 at /usr/bin/ruby
+  rubygems 1.3.5 at /home/warren/.gem/ruby/1.8, /usr/lib/ruby/gems/1.8
+
+Run `rake gems:install` to install the missing gems.
+>
+#<Gem::LoadError: Could not find RubyGem serialport (>= 0)
+>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+*** below you find the most recent exception thrown, this will be likely (but not certainly) the exception that made the application exit abnormally ***
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+*** below you find all exception objects found in memory, some of them may have been thrown in your application, others may just be in memory because they are standard exceptions ***
+#<NoMemoryError: failed to allocate memory>
+#<SystemStackError: stack level too deep>
+#<fatal: exception reentered>
+#<SystemExit: Missing these required gems:
+  serialport  
+
+You're running:
+  ruby 1.8.6.369 at /usr/bin/ruby
+  rubygems 1.3.5 at /home/warren/.gem/ruby/1.8, /usr/lib/ruby/gems/1.8
+
+Run `rake gems:install` to install the missing gems.
+>
+#<Gem::LoadError: Could not find RubyGem serialport (>= 0)
+>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+*** below you find the most recent exception thrown, this will be likely (but not certainly) the exception that made the application exit abnormally ***
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
+*** below you find all exception objects found in memory, some of them may have been thrown in your application, others may just be in memory because they are standard exceptions ***
+#<NoMemoryError: failed to allocate memory>
+#<SystemStackError: stack level too deep>
+#<fatal: exception reentered>
+#<SystemExit: Missing these required gems:
+  serialport  
+
+You're running:
+  ruby 1.8.6.369 at /usr/bin/ruby
+  rubygems 1.3.5 at /home/warren/.gem/ruby/1.8, /usr/lib/ruby/gems/1.8
+
+Run `rake gems:install` to install the missing gems.
+>
+#<Gem::LoadError: Could not find RubyGem serialport (>= 0)
+>
+#<Errno::ENOENT: No such file or directory - /home/warren/www/wikicell/log/gsm.rb.pid>
