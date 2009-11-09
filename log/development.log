@@ -3730,3 +3730,56 @@ Processing OperatorController#answered (for 127.0.0.1 at 2009-11-09 18:23:22) [G
   [4;35;1mMessage Load (1.1ms)[0m   [0mSELECT * FROM `messages` WHERE (`messages`.`status` = 'complete') [0m
   [4;36;1mMessage Columns (2.6ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
 Completed in 41ms (View: 2, DB: 4) | 200 OK [http://localhost/operator/answered]
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mMessage Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mMessage Load (0.9ms)[0m   [0mSELECT * FROM `messages` WHERE (`messages`.`sms_id` = 1 AND `messages`.`text` = 'Ghengis khan') [0m
+  [4;36;1mMessage Create (0.8ms)[0m   [0;1mINSERT INTO `messages` (`name`, `message_type`, `status`, `updated_at`, `number`, `text`, `sms_id`, `query`, `created_at`) VALUES('anonymous', 'incoming', 'received', '2009-11-09 23:25:48', '+17184966293', 'Ghengis khan', 1, 'query', '2009-11-09 23:25:48')[0m
+  [4;35;1mSQL (46.8ms)[0m   [0mCOMMIT[0m
+  [4;36;1mMessage Load (1.2ms)[0m   [0;1mSELECT * FROM `messages` WHERE (status = 'received') [0m
+Cache read: query:Ghengis khan
+Cache write: query:Ghengis khan
+  [4;35;1mSQL (0.3ms)[0m   [0mBEGIN[0m
+  [4;36;1mMessage Load (1.3ms)[0m   [0;1mSELECT * FROM `messages` WHERE (`messages`.`sms_id` = 1 AND `messages`.`text` = 'Ghengis khan') [0m
+  [4;35;1mMessage Update (0.7ms)[0m   [0mUPDATE `messages` SET `status` = 'complete', `updated_at` = '2009-11-09 23:26:36' WHERE `id` = 18[0m
+  [4;36;1mSQL (3.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mMessage Load (1.2ms)[0m   [0mSELECT * FROM `messages` WHERE (status = 'received') [0m
+  [4;36;1mMessage Load (1.3ms)[0m   [0;1mSELECT * FROM `messages` WHERE (status = 'received') [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mBEGIN[0m
+  [4;36;1mMessage Load (1.2ms)[0m   [0;1mSELECT * FROM `messages` WHERE (`messages`.`sms_id` = 1 AND `messages`.`text` = 'More') [0m
+  [4;35;1mMessage Create (0.7ms)[0m   [0mINSERT INTO `messages` (`name`, `message_type`, `status`, `updated_at`, `number`, `text`, `sms_id`, `query`, `created_at`) VALUES('anonymous', 'incoming', 'received', '2009-11-09 23:27:24', '+17184966293', 'More', 1, 'more', '2009-11-09 23:27:24')[0m
+  [4;36;1mSQL (76.9ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mMessage Load (1.2ms)[0m   [0mSELECT * FROM `messages` WHERE (status = 'received') [0m
+  [4;36;1mMessage Load (1.1ms)[0m   [0;1mSELECT * FROM `messages` WHERE (query != 'more') ORDER BY messages.id DESC LIMIT 1[0m
+  [4;35;1mMessage Load (0.9ms)[0m   [0mSELECT * FROM `messages` WHERE (created_at > '2009-11-09 23:25:48') [0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OperatorController#answered (for 127.0.0.1 at 2009-11-09 18:28:00) [GET]
+  [4;36;1mMessage Load (1.1ms)[0m   [0;1mSELECT * FROM `messages` WHERE (`messages`.`status` = 'complete') [0m
+  [4;35;1mMessage Columns (2.8ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Completed in 39ms (View: 1, DB: 4) | 200 OK [http://localhost/operator/answered]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mMessage Load (1.3ms)[0m   [0mSELECT * FROM `messages` WHERE (`messages`.`sms_id` = 1 AND `messages`.`text` = 'More') [0m
+  [4;36;1mMessage Update (0.9ms)[0m   [0;1mUPDATE `messages` SET `status` = 'complete', `updated_at` = '2009-11-09 23:28:10' WHERE `id` = 19[0m
+  [4;35;1mSQL (54.1ms)[0m   [0mCOMMIT[0m
+  [4;36;1mMessage Load (1.3ms)[0m   [0;1mSELECT * FROM `messages` WHERE (status = 'received') [0m
+  [4;35;1mMessage Load (1.2ms)[0m   [0mSELECT * FROM `messages` WHERE (status = 'received') [0m
+  [4;36;1mMessage Load (1.2ms)[0m   [0;1mSELECT * FROM `messages` WHERE (status = 'received') [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OperatorController#answered (for 127.0.0.1 at 2009-11-09 18:29:13) [GET]
+  [4;35;1mMessage Load (0.9ms)[0m   [0mSELECT * FROM `messages` WHERE (`messages`.`status` = 'complete') [0m
+  [4;36;1mMessage Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Completed in 41ms (View: 2, DB: 4) | 200 OK [http://localhost/operator/answered]
+  [4;35;1mMessage Load (1.2ms)[0m   [0mSELECT * FROM `messages` WHERE (status = 'received') [0m
+  [4;36;1mMessage Load (1.2ms)[0m   [0;1mSELECT * FROM `messages` WHERE (status = 'received') [0m
+  [4;35;1mMessage Load (1.2ms)[0m   [0mSELECT * FROM `messages` WHERE (status = 'received') [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mMessage Load (1.1ms)[0m   [0mSELECT * FROM `messages` [0m
+  [4;36;1mMessage Columns (2.8ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+  [4;36;1mMessage Load (1.3ms)[0m   [0;1mSELECT * FROM `messages` WHERE (status = 'received') [0m
+  [4;35;1mMessage Load (1.4ms)[0m   [0mSELECT * FROM `messages` WHERE (status = 'received') [0m
+  [4;36;1mMessage Load (1.2ms)[0m   [0;1mSELECT * FROM `messages` WHERE (status = 'received') [0m
+  [4;35;1mMessage Load (1.2ms)[0m   [0mSELECT * FROM `messages` WHERE (status = 'received') [0m
