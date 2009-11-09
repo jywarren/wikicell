@@ -53,6 +53,10 @@ while($running) do
 	        # find last query:
 	        last = Message.find :last, :conditions => ["query != ?",'more']
 	        article = Wikipedia.chunks(last.text,120)
+		unless article
+			article = Wikipedia.chunks(message.text,120)
+			Rails.cache.write('query:'+message.text,article) if article
+		end
 	
 	        # find out how many times we've asked
 	        mores = Message.find( :all, :conditions => ['created_at > ?',last.created_at]).length

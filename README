@@ -14,3 +14,5 @@ Enjoy!
 
 * convert to txtspeak for space savings
 * don't parse whole article - just the part we're sending
+* fix MORE feature
+* add a 'call me and read it to me' feature with ruby-asterisk-speaker
