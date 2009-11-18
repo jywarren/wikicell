@@ -3783,3 +3783,14 @@ Completed in 41ms (View: 2, DB: 4) | 200 OK [http://localhost/operator/answered]
   [4;35;1mMessage Load (1.4ms)[0m   [0mSELECT * FROM `messages` WHERE (status = 'received') [0m
   [4;36;1mMessage Load (1.2ms)[0m   [0;1mSELECT * FROM `messages` WHERE (status = 'received') [0m
   [4;35;1mMessage Load (1.2ms)[0m   [0mSELECT * FROM `messages` WHERE (status = 'received') [0m
+  [4;36;1mMessage Load (1.2ms)[0m   [0;1mSELECT * FROM `messages` WHERE (status = 'received') [0m
+  [4;35;1mMessage Load (1.2ms)[0m   [0mSELECT * FROM `messages` WHERE (status = 'received') [0m
+  [4;36;1mMessage Load (1.3ms)[0m   [0;1mSELECT * FROM `messages` WHERE (status = 'received') [0m
+  [4;35;1mMessage Load (1.3ms)[0m   [0mSELECT * FROM `messages` WHERE (status = 'received') [0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OperatorController#answered (for 127.0.0.1 at 2009-11-09 22:27:27) [GET]
+  [4;35;1mMessage Load (20.2ms)[0m   [0mSELECT * FROM `messages` WHERE (`messages`.`status` = 'complete') [0m
+  [4;36;1mMessage Columns (5.6ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Completed in 156ms (View: 1, DB: 27) | 200 OK [http://localhost/operator/answered]

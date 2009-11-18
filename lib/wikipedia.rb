@@ -13,7 +13,6 @@ class Wikipedia
                   :format => 'xml',
                   :search => query }
       document = self.get('/w/api.php', :query => options)
-	puts document
         # For a short summary:
         # document['SearchSuggestion']['Section']['Item'][0]['Description']
       # but we want the title:
@@ -29,7 +28,8 @@ class Wikipedia
       end
   end
   
-  def self.art(title)
+  def self.article(title)
+    puts "GETTING "+title
     options = { :action => 'query',
                 :format => 'xml',
                 :prop => 'revisions',
@@ -39,55 +39,51 @@ class Wikipedia
     document['api']['query']['pages']['page']['revisions']['rev']
   end
   
-  def self.clean_nodes(node)
-    	node.remove if node.to_s[0..28] == "<div class='metadata topicon'"
-    	node.remove if node.to_s[0..20] == "<div class='dablink'>"
-	node.remove if node.to_s[0..63] == "<table class='metadata plainlinks ambox ambox-content' style=''>"
-    	node.remove if node.to_s[0..1] == "\n"
-    	node.remove if node.to_s[0..25] == "<div class='thumb tright'>"
+  def self.parse(wikitext)
+    options = { :action => 'parse',
+                :text => wikitext,
+                :format => 'xml' }
+    document = self.get('/w/api.php', :query => options)
+    document['api']['parse']['text']
   end
 
-  def self.parse(page)
-    options = { :action => 'parse',
-                :format => 'xml',
-                :page => page }
-    document = self.get('/w/api.php', :query => options)
-
-
-    xml = REXML::Document.new("<xml>"+document['api']['parse']['text']+"</xml>")[0]
-    
-    xml.each do |node|
-	Wikipedia.clean_nodes(node)
-	if node.is_a? REXML::Element
-		node.each do |subnode|
-			Wikipedia.clean_nodes(node)
-		end
-	end
+  # remove unwanted markup, captions
+  def self.clean_nodes(nodes)
+    clean_nodes = []
+    nodes.each do |node|
+      clean = true
+      clean = false if node.to_s[0..28] == "<div class='metadata topicon'"
+      clean = false if node.to_s[0..19] == "<div class='dablink'"
+      clean = false if node.to_s[0..63] == "<table class='metadata plainlinks ambox ambox-content' style=''>"
+      clean = false if node.to_s[0..1] == "\n"
+      clean = false if node.to_s[0..24] == "<div class='thumb tright'"
+      clean = false if node.to_s[0..26] == "<table id='toc' class='toc'"
+      clean = false if node.to_s[0..30] == "<p><br />\n<strong class='error"
+      clean_nodes << node.to_s if clean
     end
+    clean_nodes
+  end
 
-    response = xml.to_s.strip.gsub(/<[a-zA-Z\/][^>]*>/,'').gsub('\n','')
+  def self.fetch(page)
+    document = self.article(page)
+
+    document = self.parse(document[0..2000])
+
+    nodes = REXML::Document.new("<xml>"+document+"</xml>")[0][0..20]
+
+    response = Wikipedia.clean_nodes(nodes)
+	
+    response = response.join.strip.gsub('&lt;','<').gsub('&gt;','>').gsub(/<[a-zA-Z\/][^>]*>/,'')
+    response = response.gsub(/\n/,' ')
     response
   end
-  
-  # def self.article(title)
-  #   # ?action=query&prop=revisions&titles=Rome&rvprop=content
-  #   options = { :action => 'query',
-  #               :format => 'xml',
-  #               :prop => 'revisions',
-  #               :rvprop => 'content',
-  #               :titles => title }
-  #   document = self.get('/w/api.php', :query => options)
-  #   response = document['api']['query']['pages']['page']['revisions']['rev']
-  #   # response.gsub(/\{\{(.*?)\}\}/,'').gsub(/\[\[(.*?)\]\]/,'/1').gsub(/\n/,'').gsub(/'''/,'"')
-  #   self.parse(response).gsub(/&\w;/,'')
-  # end
   
   def self.best(query)
     puts 'best match for "'+query+'"'
     search = self.search(query)
     begin
     if search
-      self.parse(search)
+      self.fetch(search)
     else
 	false
     end
@@ -103,6 +99,7 @@ class Wikipedia
     while string.length > 0
       chunks.push string.slice!(0..length-1)
     end
+    puts chunks
     chunks
     else
 	false
