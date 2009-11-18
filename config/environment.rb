@@ -21,6 +21,8 @@ Rails::Initializer.run do |config|
   # config.gem "aws-s3", :lib => "aws/s3"
   config.gem 'daemons'
   config.gem 'httparty'
+# this wasn't reliable, don't use:
+#  config.gem 'wikitext', :source => "http://gems.github.com"
 #  config.gem 'toholio-serialport'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
