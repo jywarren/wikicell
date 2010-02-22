@@ -5,11 +5,6 @@ class Sms < ActiveRecord::Base
   
 	  # t.integer  "type"
 	  # t.integer  "status"
-
-		# 1 = incoming, fetched
-		# 2 = outgoing, unsent
-		# 5 = ? outgoing, sent
-
 	  # t.string   "omsisdnA",          :limit => 40
 	  # t.string   "dmsisdnA",          :limit => 40
 	  # t.integer  "dest_port"
@@ -41,7 +36,7 @@ class Sms < ActiveRecord::Base
       sms.omsisdnA = '* N/A *'
       sms.dmsisdnA = number
       sms.content = text
-      sms.dispatch_dateTime = 0
+      sms.dispatch_dateTime = DateTime.now
       sms.dateTimeP = DateTime.now
       sms.form_message = 0
       sms.form_id = -1

@@ -9,3 +9,10 @@ You'll need the httparty gem, which you can install by running rake gems:install
 I hereby release this code under the MIT License. I'd love to hear how you use it; link back and/or email jeff@unterbahn.com.
 
 Enjoy!
+
+== TODO
+
+* convert to txtspeak for space savings
+* don't parse whole article - just the part we're sending
+* fix MORE feature
+* add a 'call me and read it to me' feature with ruby-asterisk-speaker

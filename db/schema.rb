@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091105171449) do
+ActiveRecord::Schema.define(:version => 20091109145529) do
 
   create_table "frontline_actions_triggers", :id => false, :force => true do |t|
     t.integer "action_id"
@@ -40,12 +40,12 @@ ActiveRecord::Schema.define(:version => 20091105171449) do
   add_index "frontline_email_accounts", ["account_name"], :name => "account_name", :unique => true
 
   create_table "frontline_emails", :force => true do |t|
-    t.integer  "status"
-    t.integer  "sender"
-    t.string   "recipients", :limit => 256
-    t.string   "subject",    :limit => 128
-    t.string   "content",    :limit => 256
-    t.datetime "date",                      :null => false
+    t.integer   "status"
+    t.integer   "sender"
+    t.string    "recipients", :limit => 256
+    t.string    "subject",    :limit => 128
+    t.string    "content",    :limit => 256
+    t.timestamp "date",                      :null => false
   end
 
   create_table "frontline_form_field_properties", :primary_key => "fid", :force => true do |t|
@@ -92,19 +92,19 @@ ActiveRecord::Schema.define(:version => 20091105171449) do
   end
 
   create_table "frontline_keywordActions", :force => true do |t|
-    t.integer  "type"
-    t.integer  "keyword_id"
-    t.string   "command_string",                    :limit => 480
-    t.integer  "command_integer"
-    t.integer  "hits"
-    t.datetime "start_date",                                       :null => false
-    t.datetime "end_date",                                         :null => false
-    t.string   "email_recipient",                   :limit => 480
-    t.string   "email_subject",                     :limit => 480
-    t.integer  "external_cmd_type"
-    t.string   "external_cmd",                      :limit => 480
-    t.integer  "external_cmd_response_type"
-    t.integer  "external_cmd_response_action_type"
+    t.integer   "type"
+    t.integer   "keyword_id"
+    t.string    "command_string",                    :limit => 480
+    t.integer   "command_integer"
+    t.integer   "hits"
+    t.timestamp "start_date",                                       :null => false
+    t.timestamp "end_date",                                         :null => false
+    t.string    "email_recipient",                   :limit => 480
+    t.string    "email_subject",                     :limit => 480
+    t.integer   "external_cmd_type"
+    t.string    "external_cmd",                      :limit => 480
+    t.integer   "external_cmd_response_type"
+    t.integer   "external_cmd_response_action_type"
   end
 
   create_table "frontline_keyword_lists_members", :id => false, :force => true do |t|
@@ -121,17 +121,17 @@ ActiveRecord::Schema.define(:version => 20091105171449) do
   end
 
   create_table "frontline_messages", :primary_key => "tid", :force => true do |t|
-    t.integer  "type"
-    t.integer  "status"
-    t.string   "omsisdnA",          :limit => 40
-    t.string   "dmsisdnA",          :limit => 40
-    t.integer  "dest_port"
-    t.string   "content",           :limit => 1024
-    t.datetime "dateTimeP",                         :null => false
-    t.integer  "smscReference"
-    t.datetime "dispatch_dateTime",                 :null => false
-    t.integer  "form_message"
-    t.integer  "form_id"
+    t.integer   "type"
+    t.integer   "status"
+    t.string    "omsisdnA",          :limit => 40
+    t.string    "dmsisdnA",          :limit => 40
+    t.integer   "dest_port"
+    t.string    "content",           :limit => 1024
+    t.timestamp "dateTimeP",                         :null => false
+    t.integer   "smscReference"
+    t.timestamp "dispatch_dateTime",                 :null => false
+    t.integer   "form_message"
+    t.integer   "form_id"
   end
 
   create_table "frontline_phones_details", :id => false, :force => true do |t|
@@ -143,12 +143,12 @@ ActiveRecord::Schema.define(:version => 20091105171449) do
   end
 
   create_table "frontline_schedule_tasks", :force => true do |t|
-    t.integer  "type"
-    t.string   "text",      :limit => 256
-    t.integer  "sendTo"
-    t.datetime "startDate",                :null => false
-    t.datetime "endDate",                  :null => false
-    t.integer  "frequency"
+    t.integer   "type"
+    t.string    "text",      :limit => 256
+    t.integer   "sendTo"
+    t.timestamp "startDate",                :null => false
+    t.timestamp "endDate",                  :null => false
+    t.integer   "frequency"
   end
 
   create_table "frontline_smsinternet", :primary_key => "isid", :force => true do |t|
@@ -162,6 +162,13 @@ ActiveRecord::Schema.define(:version => 20091105171449) do
     t.string  "prop_value", :limit => 512
   end
 
+  create_table "keyvalues", :force => true do |t|
+    t.string   "key"
+    t.string   "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "messages", :force => true do |t|
     t.string   "name"
     t.string   "number"
@@ -171,6 +178,7 @@ ActiveRecord::Schema.define(:version => 20091105171449) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "query",        :default => ""
+    t.integer  "sms_id",       :default => 0
   end
 
 end
